@@ -89,3 +89,41 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: well_being
+  examples: |
+    - how are you doing?
+    - are you sick?
+    - what happened?
+    - are you alright?
+    - are you ok?
+
+- intent: start
+  examples: |
+    - start Start
+    - begin Begin
+    - Commence commence
+    - Let's get started
+
+- intent: hello_world
+  examples: |
+    - world
+    - hello world
+    - world end
+    - ending
+    - dying
+    
+- intent: help
+  examples: |
+    - help
+    - how does this game work
+    - what commands can i use
+    - how does this work?
+    - please help me
+    - i do not understand this
+    - what can i do?
+    - where am i
+    - I found the cardboard [box](object), can I open it?
+    - how do I find the [door](object)?
+
+
