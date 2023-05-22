@@ -7,6 +7,11 @@ rules:
   - intent: greet
   - action: utter_greet
 
+- rule: simple look rule
+  steps:
+  - intent: look
+  - action: utter_look
+
 - rule: ask for help once
   steps:
   - intent: help
@@ -21,3 +26,8 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: hello_world
+  steps:
+  - intent: hello_world
+  - action: action_hello_world

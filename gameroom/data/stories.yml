@@ -14,6 +14,11 @@ stories:
   - action: utter_help
   - intent: hello_world
   - action: action_hello_world
+  - intent: look
+  - action: utter_look
+  - intent: use
+  - action: utter_use
+  - action: action_use
 
 - story: sad path 1
   steps:
@@ -29,6 +34,12 @@ stories:
   - action: utter_help
   - intent: hello_world
   - action: action_hello_world
+  - intent: look
+  - action: utter_look
+  - intent: use
+  - action: utter_use
+  - action: action_use
+
 
 - story: sad path 2
   steps:
@@ -45,3 +56,9 @@ stories:
   - action: utter_help
   - intent: hello_world
   - action: action_hello_world
+  - intent: look
+  - action: utter_look
+  - intent: use
+  - action: utter_use
+  - action: action_use
+

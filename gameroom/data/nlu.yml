@@ -112,6 +112,39 @@ nlu:
     - world end
     - ending
     - dying
+    - finish
+
+
+- intent: look
+  examples: |
+    - look around
+    - look at the [table](object)
+    - look in the [box](object)
+    - look inside the walls
+    - look inside the room
+    - watch around
+    - watch inside the room
+    - i want to look at the [table](object)
+    - i want to look at the [box](object)
+    - look at the [vessel](object)
+    - check inside the walls
+    - check inside the room
+    - check the [table](object)
+    - look at the [table][object]
+    - check the [box](object)
+    - look at the [box][object]
+    - check the [vessel][object]
+    - look at the [vessel][object]
+
+- intent: use
+  examples: |
+  - mix charm, potion and vessel
+  - use charm, potion and vessel
+  - use concealment charm, magical potion inside transfiguration vessel
+  - put concealment charm, magical potion in transfiguration vessel
+  - combine concealment charm, magical potion and transfiguration vessel
+  - mix concealment charm, magical potion inside transfiguration vessel
+
     
 - intent: help
   examples: |
@@ -122,8 +155,11 @@ nlu:
     - please help me
     - i do not understand this
     - what can i do?
-    - where am i
-    - I found the cardboard [box](object), can I open it?
-    - how do I find the [door](object)?
+    - where am i?
 
 
+- lookup: object
+  examples: |
+    - box
+    - table
+    - vessel

@@ -12,6 +12,9 @@ intents:
   - help
   - hello_world
   - start
+  - look
+  - use
+
 entities:
   - object
 
@@ -42,11 +45,16 @@ responses:
 
   utter_start:
   - text: "You are trapped inside magical walls which is the deepest part of the chamber.\
-          \  Remember, you cannot break the walls harry, my boy! \
-          \ You need to create a spell which will make these walls disappear. \
-          \ To create the spell, look at the things around yourself and spell will be created from the clues. \
-          \ Once you have all the clues, name the spell and walls will disppear into thin air !"
+          \  Remember, you cannot break the walls harry, my child! \
+          \ You need a spell and magical objects which will make these walls disappear. \
+          \ Find these objects arund you and I will give you a spell to caste that will make walls disappear into thin air ! \
+          \ Start looking around and let me know when you are ready. We don't have much time."
 
+  utter_look:
+  - text: "I can see a table, a box in the corner and a transfiguration vessel lying on the ground."
+
+  utter_use:
+  - text: "Super! Now time to use your wand harry and spell - Evanseco-Sofortum"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
