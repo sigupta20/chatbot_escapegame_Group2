@@ -4,30 +4,35 @@ rules:
 
 - rule: simple greet rule
   steps:
-  - intent: greet
-  - action: utter_greet
+    - intent: greet
+    - action: utter_greet
 
 - rule: simple look rule
   steps:
-  - intent: look
-  - action: utter_look
+    - intent: look
+    - action: utter_look
 
 - rule: ask for help once
   steps:
-  - intent: help
-  - action: utter_help
+    - intent: help
+    - action: utter_help
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+    - intent: goodbye
+    - action: utter_goodbye
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - intent: bot_challenge
+    - action: utter_iamabot
 
-- rule: hello_world
+- rule: inventory
   steps:
-  - intent: hello_world
-  - action: action_hello_world
+    - intent: inventory
+    - action: action_inventory
+
+- rule: pickup
+  steps:
+    - intent: pickup
+    - action: action_pickup

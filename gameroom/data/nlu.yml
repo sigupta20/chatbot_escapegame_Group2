@@ -138,14 +138,34 @@ nlu:
 
 - intent: use
   examples: |
-  - mix charm, potion and vessel
-  - use charm, potion and vessel
-  - use concealment charm, magical potion inside transfiguration vessel
-  - put concealment charm, magical potion in transfiguration vessel
-  - combine concealment charm, magical potion and transfiguration vessel
-  - mix concealment charm, magical potion inside transfiguration vessel
+    - mix charm, potion and vessel
+    - use charm, potion and vessel
+    - use concealment charm, magical potion inside transfiguration vessel
+    - put concealment charm, magical potion in transfiguration vessel
+    - combine concealment charm, magical potion and transfiguration vessel
+    - mix concealment charm, magical potion inside transfiguration vessel
 
-    
+- intent: inventory
+  examples: |
+    - show inventory
+    - what is in my inventory
+    - what items to i currently have
+    - what have i picked up sofar
+    - check inventory
+    - check my inventory
+    - look at the inventory
+    - Where do I find my inventory?
+    - show me inventory
+
+- intent: pickup
+  examples: |
+    - pick up the [box](object)
+    - take the [box](object)
+    - grab the [box](object)
+    - pick up the [vessel](object)
+    - grab the [vessel](object)
+    - take the [vessel](object)
+
 - intent: help
   examples: |
     - help

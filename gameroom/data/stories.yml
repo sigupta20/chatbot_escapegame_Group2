@@ -6,19 +6,35 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+
   - intent: mood_great
   - action: utter_happy
+
   - intent: start
   - action: utter_start
+
   - intent: help
   - action: utter_help
-  - intent: hello_world
-  - action: action_hello_world
+
   - intent: look
   - action: utter_look
+
+  - intent: inventory
+  - action: action_inventory
+
+  - intent: pickup
+  - action: action_pickup
+
+  - slot_was_set:
+      - box: true
+      - vessel: true
+
+  - intent: inventory
+  - action: action_inventory
+
   - intent: use
-  - action: utter_use
   - action: action_use
+
 
 - story: sad path 1
   steps:
@@ -38,7 +54,7 @@ stories:
   - action: utter_look
   - intent: use
   - action: utter_use
-  - action: action_use
+#  - action: action_use
 
 
 - story: sad path 2
@@ -60,5 +76,5 @@ stories:
   - action: utter_look
   - intent: use
   - action: utter_use
-  - action: action_use
+#  - action: action_use
 

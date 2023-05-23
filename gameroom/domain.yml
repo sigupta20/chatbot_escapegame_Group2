@@ -14,12 +14,34 @@ intents:
   - start
   - look
   - use
+  - inventory
+  - pickup
 
 entities:
   - object
 
+slots:
+  box:
+    type: bool
+    initial_value: False
+    influence_conversation: true
+    mappings:
+      - type: custom
+        intent: action_pickup
+  vessel:
+    type: bool
+    initial_value: False
+    influence_conversation: true
+    mappings:
+      - type: custom
+        action: action_pickup
+
 actions:
   - action_hello_world
+  - action_use
+  - action_look
+  - action_pickup
+  - action_inventory
 
 
 responses:
