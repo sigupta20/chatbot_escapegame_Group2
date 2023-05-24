@@ -1,4 +1,4 @@
-#Intent: Evanseco-Sofortum
+# Intent: Evanseco-Sofortum
 
 Good work {Name}! Now you must hurry to the basement. If I were you, I would never do that,but you must go there to get out of the chambers. You meet Celina there. She is a ghost which was tricked and killed by Voldemort.
 You need to convice her to give the secret spell to get out of the basement. She is not easy going, she is always annoyed and very impatient. You have to keep your calm and must convice her. She will always talk you in riddles.
@@ -6,7 +6,7 @@ Solve them and you will be on your way.
 
 Go down {Name} and call her name !
 
-#Intent: Celina
+# Intent: Celina
 
 Look who's there! Another Victim. Are you also trapped in the chamber little wizard? Ha ha ha ha.....
 How about let's stay here forever? ;)
@@ -20,7 +20,7 @@ It can be seen, it can be felt, but it never heard, and never smelt. It comes ev
 It has mighty tall walls, all the riches, and also a dark prison to capture all the evil.
 Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat.
 
-Sentence:- A witch in the dark castle !
+# Sentence:- A witch in the dark castle !
 Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement-door.
 
 - Pick the key
