@@ -32,7 +32,7 @@ class ActionHelloWorld(Action):
         return []
 
 
-able_to_pick_up = ["box", "vessel"]
+able_to_pick_up = ["charm", "potion", "vessel"]
 
 
 class ActionInventory(Action):
@@ -61,9 +61,9 @@ class ActionInventory(Action):
 
 
 look_descriptions = {
-    "table": "Some table description...",
-    "box": "It's a box. There's something inside of it.",
-    "vessel": "It's a vessel.",
+    "table": "It is a black carved table.",
+    "box": "It's a woooden box. There's something inside of it.",
+    "vessel": "It's a transfiguration vessel. Used to mix magical items",
 }
 
 
@@ -114,16 +114,37 @@ class ActionPickUp(Action):
         dispatcher.utter_message(text="Are you sure you spelled the item you wanted to pick up correctly?")
         return []
 
+combinations = {
+    ('charm', 'potion', 'vessel'): "Why put the poster back in the box? You've just picked it up!"
+}
+combinations.update({(i2, i1): v for (i1, i2), v in combinations.items()})
 
 class ActionUse(Action):
     def name(self) -> Text:
         return "action_use"
 
-    def run(
-        self,
-        dispatcher: "CollectingDispatcher",
+    def run(self, dispatcher: "CollectingDispatcher",
         tracker: Tracker,
-        domain: "DomainDict",
-    ) -> List[Dict[Text, Any]]:
-        print("action run")
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        entities = [e['value'] for e in tracker.latest_message['entities'] if e['entity'] == 'object']
+        if len(entities) == 0:
+            dispatcher.utter_message(text="I think you want to combine items but something is unclear.")
+            dispatcher.utter_message(text="Could you retry and make sure you spelled the items correctly?.")
+            return []
+        elif len(entities) == 1:
+            dispatcher.utter_message(text="I think you want to combine items but something is unclear.")
+            dispatcher.utter_message(text=f"I could only make out that you wanted to use {entities[0]}.")
+            dispatcher.utter_message(text="Could you retry and make sure you spelled the items correctly?.")
+            return []
+        elif len(entities) > 2:
+            dispatcher.utter_message(text="I think you want to combine items but something is unclear.")
+            dispatcher.utter_message(text=f"I could only make out that you wanted to combine {' and '.join(entities)}.")
+            dispatcher.utter_message(text="You can only combine two items at a time.")
+            return []
+        # there are two items and they are confirmed
+        item1, item2 = entities
+        if (item1, item2) in combinations.keys():
+            dispatcher.utter_message(text=combinations[(item1, item2)])
+        else:
+            dispatcher.utter_message(text=f"I don't think combining {item1} with {item2} makes sense.")
         return []

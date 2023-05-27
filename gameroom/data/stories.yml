@@ -54,6 +54,8 @@ stories:
   - action: utter_look
   - intent: use
   - action: utter_use
+  - intent: start
+  - action: utter_start
 #  - action: action_use
 
 
@@ -76,5 +78,7 @@ stories:
   - action: utter_look
   - intent: use
   - action: utter_use
+  - intent: start
+  - action: utter_start
 #  - action: action_use
 

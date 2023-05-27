@@ -100,7 +100,8 @@ nlu:
 
 - intent: start
   examples: |
-    - start Start
+    - Start
+    - start
     - begin Begin
     - Commence commence
     - Let's get started
