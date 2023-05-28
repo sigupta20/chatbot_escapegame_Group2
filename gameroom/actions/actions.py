@@ -32,7 +32,7 @@ class ActionHelloWorld(Action):
         return []
 
 
-able_to_pick_up = ["charm", "potion", "vessel"]
+able_to_pick_up = ["charm", "potion", "vessel", "key"]
 
 
 class ActionInventory(Action):
@@ -60,10 +60,15 @@ class ActionInventory(Action):
         return []
 
 
+
 look_descriptions = {
-    "table": "It is a black carved table.",
-    "box": "It's a woooden box. There's something inside of it.",
-    "vessel": "It's a transfiguration vessel. Used to mix magical items",
+    "table": "It is a black carved table. It has a concealment charm and a map on the top of it.",
+    "box": "It's a wooden box. There's something inside of it.",
+    "potion": "It is a magical potion which makes a spell work.",
+    "vessel": "It's a transfiguration vessel. Peple used these, to mix things together.",
+    "room": "I can see a table, a box in the corner and a transfiguration vessel lying on the ground.",
+    "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
+    "map": "It is a map of Hogwarts. Doesn't look that important."
 }
 
 
@@ -75,14 +80,14 @@ class ActionLook(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         spoken = False
-        print("action look")
+        print("action_look")
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'object':
                 dispatcher.utter_message(text=look_descriptions[blob['value']])
                 spoken = True
         if not spoken:
-            dispatcher.utter_message(text="Could you repeat what you're trying to look at?")
+            dispatcher.utter_message(text="Could you specify clearly, what you're trying to look or check at?")
         return []
 
 
@@ -115,24 +120,28 @@ class ActionPickUp(Action):
         return []
 
 combinations = {
-    ('charm', 'potion', 'vessel'): "Why put the poster back in the box? You've just picked it up!"
+    ('charm', 'potion'): "Wow, you have created Po-charm, now put it inside vessel and we are ready...",
+    ('po-charm', 'vessel'): "Super! Now time to use your wand harry and cast spell - Evanseco-Sofortum !",
+    ('key', 'door'): "Why put the key back in the box? It's probably super useful.",
 }
 combinations.update({(i2, i1): v for (i1, i2), v in combinations.items()})
+
 
 class ActionUse(Action):
     def name(self) -> Text:
         return "action_use"
 
-    def run(self, dispatcher: "CollectingDispatcher",
-        tracker: Tracker,
-        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("action_use")
         entities = [e['value'] for e in tracker.latest_message['entities'] if e['entity'] == 'object']
         if len(entities) == 0:
             dispatcher.utter_message(text="I think you want to combine items but something is unclear.")
             dispatcher.utter_message(text="Could you retry and make sure you spelled the items correctly?.")
             return []
         elif len(entities) == 1:
-            dispatcher.utter_message(text="I think you want to combine items but something is unclear.")
+            dispatcher.utter_message(text="I think you want to combine items but something is unclear or missing.")
             dispatcher.utter_message(text=f"I could only make out that you wanted to use {entities[0]}.")
             dispatcher.utter_message(text="Could you retry and make sure you spelled the items correctly?.")
             return []
@@ -147,4 +156,5 @@ class ActionUse(Action):
             dispatcher.utter_message(text=combinations[(item1, item2)])
         else:
             dispatcher.utter_message(text=f"I don't think combining {item1} with {item2} makes sense.")
+
         return []

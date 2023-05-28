@@ -90,13 +90,11 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: well_being
+- intent: evanseco_sofortum
   examples: |
-    - how are you doing?
-    - are you sick?
-    - what happened?
-    - are you alright?
-    - are you ok?
+    - Evanseco-Sofortum
+    - evanseco-sofortum
+    - evanseco sofortum
 
 - intent: start
   examples: |
@@ -118,37 +116,48 @@ nlu:
 
 - intent: look
   examples: |
-    - look around
+    - look around [room](object)
+    - what is inside the [room](object)
     - look at the [table](object)
     - look in the [box](object)
-    - look inside the walls
-    - look inside the room
-    - watch around
-    - watch inside the room
+    - look at the [charm](object)
+    - look at the [map](object)
+    - inspect [charm](object)
+    - inspect [map](object)
+    - check [charm](object)
+    - check [map](object)
+    - look inside the [room](object)
+    - watch around [room](object)
+    - watch inside the [walls](object)
     - i want to look at the [table](object)
     - i want to look at the [box](object)
     - look at the [vessel](object)
-    - check inside the walls
-    - check inside the room
     - check the [table](object)
-    - look at the [table][object]
+    - look at the [table](object)
     - check the [box](object)
-    - look at the [box][object]
-    - check the [vessel][object]
-    - look at the [vessel][object]
+    - look at the [box](object)
+    - check the [vessel](object)
+    - look at the [vessel](object)
 
 - intent: use
   examples: |
-    - mix charm, potion and vessel
-    - use charm, potion and vessel
-    - use concealment charm, magical potion inside transfiguration vessel
-    - put concealment charm, magical potion in transfiguration vessel
-    - combine concealment charm, magical potion and transfiguration vessel
-    - mix concealment charm, magical potion inside transfiguration vessel
+    - mix [charm](object) and [potion](object) together
+    - use the [potion](object) and [charm](object) together
+    - combine [charm](object) and [potion](object)
+    - mix the [charm](object) with the [potion](object)
+    - use [charm](object), [potion](object) and [vessel](object) together
+    - combine concealment [charm](object)and magical [potion](object)
+    - mix concealment [potion](object) and magical [potion](object)
+    - put [po-charm](object) in the [vessel](object)
+    - pour [po-charm](object) in the [vessel](object)
+    - combine [po-charm](object) in the [vessel](object)
+    - mix [po-charm](object) and the [vessel](object)
 
 - intent: inventory
   examples: |
     - show inventory
+    - check inventory
+    - inventory
     - what is in my inventory
     - what items to i currently have
     - what have i picked up sofar
@@ -160,12 +169,16 @@ nlu:
 
 - intent: pickup
   examples: |
-    - pick up the [box](object)
-    - take the [box](object)
-    - grab the [box](object)
     - pick up the [vessel](object)
+    - pickup the [vessel](object)
     - grab the [vessel](object)
     - take the [vessel](object)
+    - pickup the [charm](object)
+    - pickup the [potion](object)
+    - grab the [charm](object)
+    - grab the [potion](object)
+    - take the [charm](object)
+    - take the [potion](object)
 
 - intent: help
   examples: |
@@ -184,3 +197,8 @@ nlu:
     - box
     - table
     - vessel
+    - key
+    - map
+    - charm
+    - room
+    - po-charm

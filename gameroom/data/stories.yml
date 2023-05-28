@@ -16,8 +16,11 @@ stories:
   - intent: help
   - action: utter_help
 
+  - intent: evanseco_sofortum
+  - action: utter_evanseco
+
   - intent: look
-  - action: utter_look
+  - action: action_look
 
   - intent: inventory
   - action: action_inventory
@@ -26,15 +29,16 @@ stories:
   - action: action_pickup
 
   - slot_was_set:
-      - box: true
+      - charm: true
       - vessel: true
+      - potion: true
+      - key: true
 
   - intent: inventory
   - action: action_inventory
 
   - intent: use
   - action: action_use
-
 
 - story: sad path 1
   steps:
@@ -51,11 +55,13 @@ stories:
   - intent: hello_world
   - action: action_hello_world
   - intent: look
-  - action: utter_look
+  - action: action_look
   - intent: use
-  - action: utter_use
+  - action: action_use
   - intent: start
   - action: utter_start
+  - intent: evanseco_sofortum
+  - action: utter_evanseco
 #  - action: action_use
 
 
@@ -75,10 +81,12 @@ stories:
   - intent: hello_world
   - action: action_hello_world
   - intent: look
-  - action: utter_look
+  - action: action_look
   - intent: use
-  - action: utter_use
+  - action: action_use
   - intent: start
   - action: utter_start
+  - intent: evanseco_sofortum
+  - action: utter_evanseco
 #  - action: action_use
 

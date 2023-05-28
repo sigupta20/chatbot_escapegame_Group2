@@ -16,12 +16,13 @@ intents:
   - use
   - inventory
   - pickup
+  - evanseco_sofortum
 
 entities:
   - object
 
 slots:
-  box:
+  charm:
     type: bool
     initial_value: False
     influence_conversation: true
@@ -35,7 +36,20 @@ slots:
     mappings:
       - type: custom
         action: action_pickup
-
+  potion:
+    type: bool
+    initial_value: False
+    influence_conversation: true
+    mappings:
+      - type: custom
+        intent: action_pickup
+  key:
+    type: bool
+    initial_value: False
+    influence_conversation: true
+    mappings:
+      - type: custom
+        intent: action_pickup
 actions:
   - action_hello_world
   - action_use
@@ -68,15 +82,20 @@ responses:
   utter_start:
   - text: "You are trapped inside magical walls which is the deepest part of the chamber.\
           \  Remember, you cannot break the walls harry, my child! \
-          \ You need a spell and magical objects which will make these walls disappear. \
-          \ Find these objects arund you and I will give you a spell to caste that will make walls disappear into thin air ! \
+          \ You need a spell and magical objects which will make the room walls disappear. \
+          \ Find these objects arund you and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \
           \ Start looking around and let me know when you are ready. We don't have much time."
 
-  utter_look:
-  - text: "I can see a table, a box in the corner and a transfiguration vessel lying on the ground."
 
-  utter_use:
-  - text: "Super! Now time to use your wand harry and spell - Evanseco-Sofortum"
+  utter_evanseco:
+  - text: "Good work Name ! Now you must hurry to the basement. \
+          \ If I were you, I would never do that,but you must go there to get out of the chambers. \
+          \ You meet Celina there. She is a ghost which was tricked and killed by Voldemort. \
+          \ You need to convice her to give the secret spell to get out of the basement. \
+          \ She is not easy going, she is always annoyed and very impatient. \
+          \ You have to keep your calm and must convice her. She will always talk you in riddles. \
+          \ Solve them and you will be on your way.\
+          \ Go down Name and call her name !"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"

@@ -7,10 +7,15 @@ rules:
     - intent: greet
     - action: utter_greet
 
+- rule: simple evanseco sofortum rule
+  steps:
+    - intent: evanseco_sofortum
+    - action: utter_evanseco
+
 - rule: simple look rule
   steps:
     - intent: look
-    - action: utter_look
+    - action: action_look
 
 - rule: ask for help once
   steps:
@@ -27,6 +32,11 @@ rules:
     - intent: bot_challenge
     - action: utter_iamabot
 
+- rule: simple look rule
+  steps:
+    - intent: look
+    - action: action_look
+    
 - rule: inventory
   steps:
     - intent: inventory
@@ -36,3 +46,8 @@ rules:
   steps:
     - intent: pickup
     - action: action_pickup
+
+- rule: use
+  steps:
+    - intent: use
+    - action: action_use
