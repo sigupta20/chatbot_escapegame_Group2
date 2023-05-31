@@ -12,6 +12,11 @@ rules:
     - intent: evanseco_sofortum
     - action: utter_evanseco
 
+- rule: simple start rule
+  steps:
+    - intent: start
+    - action: utter_start 
+
 - rule: simple look rule
   steps:
     - intent: look

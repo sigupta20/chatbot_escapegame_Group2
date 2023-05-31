@@ -63,7 +63,7 @@ class ActionInventory(Action):
 
 look_descriptions = {
     "table": "It is a black carved table. It has a concealment charm and a map on the top of it.",
-    "box": "It's a wooden box. There's something inside of it.",
+    "box": "It's a wooden box. There's a potion inside of it.",
     "potion": "It is a magical potion which makes a spell work.",
     "vessel": "It's a transfiguration vessel. Peple used these, to mix things together.",
     "room": "I can see a table, a box in the corner and a transfiguration vessel lying on the ground.",
