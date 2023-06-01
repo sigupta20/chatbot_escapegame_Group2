@@ -3,7 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
-
+from rasa.shared.core.events import Event
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -19,6 +19,93 @@ from rasa_sdk.types import DomainDict
 # from rasa_sdk.executor import CollectingDispatcher
 #
 #
+
+# Provide Name
+
+class ActionAskName(Action):
+
+    def name(self) -> Text:
+        return "action_ask_name"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="May I know your name?")
+
+        return []
+
+
+class ActionSaveName(Action):
+    def name(self) -> Text:
+        return "action_save_name"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        # Fetch the user_name entity from the user's message
+        user_name = tracker.get_slot("user_name")
+
+        if not user_name:
+            # If no name was provided, ask again
+            dispatcher.utter_message(text="Sorry, I didn't catch your name. Could you please tell me your name?")
+        else:
+            # Save the name in a slot
+            return [SlotSet("user_name", user_name)]
+
+# class ActionSaveName(Action):
+
+#     def name(self) -> Text:
+#         return "action_save_name"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Event]:
+
+#         text = tracker.latest_message.get('text')
+
+#         return [SlotSet("user_name", text)]
+
+
+
+
+
+
+# Room 2 Action Check Riddle
+class ActionCheckAnswer(Action):
+    def name(self):
+        return "action_check_answer"
+
+    def run(self, dispatcher, tracker, domain):
+        user_answer = tracker.latest_message.get('text')
+        correct_answer = "A witch in the dark castle"
+
+        if user_answer.lower() == correct_answer.lower():
+            dispatcher.utter_message(text="Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement-door.")
+            return [SlotSet("key", True)]       
+        else:
+            dispatcher.utter_message(text="I'm afraid that's not correct.")
+        
+        return []
+
+class ActionUseKeyOnDoor(Action):
+    def name(self):
+        return "action_use_key_on_door"
+
+    def run(self, dispatcher, tracker, domain):
+        has_key = tracker.get_slot('key')
+
+        if has_key:
+            dispatcher.utter_message(text="You used the key on the door and it opens. Congratulations, you've escaped from the basement!")
+        else:
+            dispatcher.utter_message(text="You tried to open the door, but it's locked. You need a key.")
+
+        return []
+
+
+
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:

@@ -2,20 +2,45 @@ version: "3.1"
 
 rules:
 
+# Provide Name
+# - rule: Ask for user's name
+#   steps:
+#     - intent: start
+#     - action: action_ask_name
+#     - intent: provide_name
+#     - action: action_save_name
+
 - rule: simple greet rule
   steps:
     - intent: greet
-    - action: utter_greet
+    - action: action_ask_name
 
 - rule: simple evanseco sofortum rule
   steps:
     - intent: evanseco_sofortum
     - action: utter_evanseco
 
+- rule: Find Celina
+  steps:
+    - intent: Celina
+    - action: utter_Celina
+
+- rule: Celina replies
+  steps:
+    - intent: get_out_of_basement
+    - action: utter_get_out_of_basement
+
+
 - rule: simple start rule
   steps:
     - intent: start
-    - action: utter_start 
+    - action: utter_start
+
+- rule: User provides name
+  steps:
+    - intent: provide_name
+    - action: action_save_name
+    - action: utter_greet 
 
 - rule: simple look rule
   steps:
@@ -27,15 +52,27 @@ rules:
     - intent: help
     - action: utter_help
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-    - intent: goodbye
-    - action: utter_goodbye
+# Room 2 Rule
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Check riddle answer
   steps:
-    - intent: bot_challenge
-    - action: utter_iamabot
+  - intent: answer_riddle
+  - action: action_check_answer
+
+- rule: Use key on door
+  steps:
+  - intent: use_key_on_door
+  - action: action_use_key_on_door
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#     - intent: goodbye
+#     - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#     - intent: bot_challenge
+#     - action: utter_iamabot
 
 - rule: simple look rule
   steps:

@@ -16,85 +16,123 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - provide_name
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+# - intent: goodbye
+#   examples: |
+#     - cu
+#     - good by
+#     - cee you later
+#     - good night
+#     - bye
+#     - goodbye
+#     - have a nice day
+#     - see you around
+#     - bye bye
+#     - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+# - intent: affirm
+#   examples: |
+#     - yes
+#     - y
+#     - indeed
+#     - of course
+#     - that sounds good
+#     - correct
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+# - intent: deny
+#   examples: |
+#     - no
+#     - n
+#     - never
+#     - I don't think so
+#     - don't like that
+#     - no way
+#     - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+# - intent: mood_great
+#   examples: |
+#     - perfect
+#     - great
+#     - amazing
+#     - feeling like a king
+#     - wonderful
+#     - I am feeling very good
+#     - I am great
+#     - I am amazing
+#     - I am going to save the world
+#     - super stoked
+#     - extremely good
+#     - so so perfect
+#     - so good
+#     - so perfect
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+# - intent: mood_unhappy
+#   examples: |
+#     - my day was horrible
+#     - I am sad
+#     - I don't feel very well
+#     - I am disappointed
+#     - super sad
+#     - I'm so sad
+#     - sad
+#     - very sad
+#     - unhappy
+#     - not good
+#     - not very good
+#     - extremly sad
+#     - so saad
+#     - so sad
 
-- intent: bot_challenge
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?
+- intent: use_key_on_door
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - use key on door
+    - unlock the door with the key
+    - open the door using the key
+    - I want to use the key on the door
+
+- intent: answer_riddle
+  examples: |
+    - A witch in the dark castle
+    - It's a witch in a dark castle
+    - Is it a witch in the dark castle?
+    - The answer is a witch in the dark castle
+    - I think it's a witch in the dark castle
+    - My answer is a witch in the dark castle
+    - Could it be a witch in the dark castle?
+    - The riddle's answer is a witch in the dark castle
 
 - intent: evanseco_sofortum
   examples: |
     - Evanseco-Sofortum
     - evanseco-sofortum
     - evanseco sofortum
+
+- intent: Celina
+  examples: |
+    - Celina
+    - celina
+    - CELINA
+
+- intent: get_out_of_basement
+  examples: |
+    - How can I exit the basement?
+    - I need to find a way out of the basement.
+    - Is there a way to escape from the basement?
+    - Help me get out of this basement!
+    - Can you suggest a way to leave the basement?
+    - What are the steps to get out of the basement?
+    - I'm trapped in the basement. How do I get out?
+    - Is there an exit from the basement?
+    - How do I find the exit from the basement?
+    - Please show me the way out of the basement.
+
 
 - intent: start
   examples: |
@@ -104,14 +142,14 @@ nlu:
     - Commence commence
     - Let's get started
 
-- intent: hello_world
-  examples: |
-    - world
-    - hello world
-    - world end
-    - ending
-    - dying
-    - finish
+# - intent: hello_world
+#   examples: |
+#     - world
+#     - hello world
+#     - world end
+#     - ending
+#     - dying
+#     - finish
 
 
 - intent: look
@@ -202,3 +240,14 @@ nlu:
     - charm
     - room
     - po-charm
+
+# Provide Name
+
+- intent: provide_name
+  examples: |
+    - My name is [John](user_name)
+    - I'm [Sarah](user_name)
+    - Call me [Mohammed](user_name)
+    - You can call me [Emily](user_name)
+    - I am [Alice](user_name)
+    - [Bob](user_name)

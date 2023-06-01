@@ -2,24 +2,32 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - well_being
+  # - goodbye
+  # - affirm
+  # - deny
+  # - mood_great
+  # - mood_unhappy
+  # - bot_challenge
+  # - well_being
   - help
-  - hello_world
+  # - hello_world
   - start
   - look
   - use
   - inventory
   - pickup
   - evanseco_sofortum
+  - Celina
+  - get_out_of_basement
+  - answer_riddle
+  - use_key_on_door
+  - provide_name 
+
+  # Provide name ^
 
 entities:
   - object
+  - user_name
 
 slots:
   charm:
@@ -50,17 +58,32 @@ slots:
     mappings:
       - type: custom
         intent: action_pickup
+
+# Provide Name
+
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_name
+
 actions:
   - action_hello_world
   - action_use
   - action_look
   - action_pickup
   - action_inventory
-
+  # Room 2 action
+  - action_check_answer
+  - action_use_key_on_door
+  # Provide Name
+  - action_ask_name
+  - action_save_name
 
 responses:
   utter_greet:
-  - text: "Hello There, Harry Potter! Welcome to the Hogwart's again ! You are being trapped in a Magical Chamber by mischievous House-Elf.\
+  - text: "Hello There, {user_name}! Welcome to the Hogwart's again ! You are being trapped in a Magical Chamber by mischievous House-Elf.\
       \ You have to escape from this chamber otherwise it be too late forever.\
       \ You must find your way out because you only have short time and after that chamber starts to seal itself, trapping you inside forever.\
       \ It's not going to be easy Mr. Potter, you must have to find artifacts which can be used to get find an exit.\
@@ -97,24 +120,37 @@ responses:
           \ Solve them and you will be on your way.\
           \ Go down Name and call her name !"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_Celina:
+  - text: "Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \
+          \ Ha ha ha ha..... How about let's stay here forever? ;) Tell me what you want, don't waste my time.."
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_get_out_of_basement:
+  - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
+  \ Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \
+  \ Your riddles are:- It can be seen, it can be felt, but it never heard, and never smelt. \
+  \ It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \
+  \ It has mighty tall walls, all the riches, and also a dark prison to capture all the evil. \
+  \ Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat."
 
-  utter_happy:
-  - text: "Great, carry on!"
 
-  utter_well_being:
-  - text: "I am good and how are you?"
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_goodbye:
-  - text: "Bye"
+  # utter_did_that_help:
+  # - text: "Did that help you?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  # utter_well_being:
+  # - text: "I am good and how are you?"
+
+  # utter_goodbye:
+  # - text: "Bye"
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
