@@ -1,6 +1,0 @@
-[
-  {
-    "name": "object",
-    "pattern": "(\\bbox\\b|\\btable\\b|\\bvessel\\b|\\bkey\\b|\\bmap\\b|\\bcharm\\b|\\broom\\b)"
-  }
-]
