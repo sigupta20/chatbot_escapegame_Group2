@@ -27,46 +27,78 @@ intents:
 
 entities:
   - object
-  - user_name
+  - PERSON
 
 slots:
+  # charm:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+  # vessel:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       action: action_pickup
+  # potion:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+  # key:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+
+
+
   charm:
     type: bool
     initial_value: False
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: custom
-        intent: action_pickup
+        # action: action_pickup
   vessel:
     type: bool
     initial_value: False
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: custom
-        action: action_pickup
+        # action: action_pickup
   potion:
     type: bool
     initial_value: False
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: custom
-        intent: action_pickup
+        # action: action_pickup
   key:
     type: bool
     initial_value: False
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: custom
-        intent: action_pickup
+        # action: action_pickup
+
 
 # Provide Name
 
-  user_name:
+  PERSON:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_entity
-      entity: user_name
+      entity: PERSON
 
 actions:
   - action_hello_world
@@ -83,7 +115,7 @@ actions:
 
 responses:
   utter_greet:
-  - text: "Hello There, {user_name}! Welcome to the Hogwart's again ! You are being trapped in a Magical Chamber by mischievous House-Elf.\
+  - text: "Hello There, {PERSON}! Welcome to the Hogwart's again ! You are being trapped in a Magical Chamber by mischievous House-Elf.\
       \ You have to escape from this chamber otherwise it be too late forever.\
       \ You must find your way out because you only have short time and after that chamber starts to seal itself, trapping you inside forever.\
       \ It's not going to be easy Mr. Potter, you must have to find artifacts which can be used to get find an exit.\
@@ -111,14 +143,14 @@ responses:
 
 
   utter_evanseco:
-  - text: "Good work Name ! Now you must hurry to the basement. \
+  - text: "Good work {PERSON} ! Now you must hurry to the basement. \
           \ If I were you, I would never do that,but you must go there to get out of the chambers. \
           \ You meet Celina there. She is a ghost which was tricked and killed by Voldemort. \
           \ You need to convice her to give the secret spell to get out of the basement. \
           \ She is not easy going, she is always annoyed and very impatient. \
           \ You have to keep your calm and must convice her. She will always talk you in riddles. \
           \ Solve them and you will be on your way.\
-          \ Go down Name and call her name !"
+          \ Go down {PERSON} and call her name !"
 
   utter_Celina:
   - text: "Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \

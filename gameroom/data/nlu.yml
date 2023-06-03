@@ -104,9 +104,17 @@ nlu:
     - Is it a witch in the dark castle?
     - The answer is a witch in the dark castle
     - I think it's a witch in the dark castle
-    - My answer is a witch in the dark castle
+    - My answer is a witch in the dark palace
     - Could it be a witch in the dark castle?
     - The riddle's answer is a witch in the dark castle
+    - A witch in a dark castle
+    - It's a witch in a dark castle
+    - Is it a witch in a dark palace?
+    - The answer is a witch in a dark castle
+    - I think it's a witch in a dark castle
+    - My answer is a witch in a dark palace
+    - Could it be a witch in a dark castle?
+    - The riddle's answer is a witch in the dark palace
 
 - intent: evanseco_sofortum
   examples: |
@@ -245,9 +253,27 @@ nlu:
 
 - intent: provide_name
   examples: |
-    - My name is [John](user_name)
-    - I'm [Sarah](user_name)
-    - Call me [Mohammed](user_name)
-    - You can call me [Emily](user_name)
-    - I am [Alice](user_name)
-    - [Bob](user_name)
+    - You may refer to me as [Elizabeth](PERSON)
+    - My full name is [James Smith](PERSON)
+    - They call me [Jenny](PERSON)
+    - I go by [Tom](PERSON)
+    - Just call me [Maria](PERSON)
+    - People often refer to me as [Mark](PERSON)
+    - [Rachel](PERSON) is my name
+    - [Leo](PERSON), that's my name
+    - My friends call me [Jessie](PERSON)
+    - [Benjamin](PERSON), that's what people call me
+    - I'm also known as [Sophie](PERSON)
+    - [Oscar](PERSON) is my name
+    - Most people call me [Isabella](PERSON)
+    - [Lucas](PERSON) is what I go by
+    - [Charlotte](PERSON) is my given name
+
+# - intent: provide_name
+#   examples: |
+#     - My name is [John](user_name)
+#     - I'm [Sarah](user_name)
+#     - Call me [Mohammed](user_name)
+#     - You can call me [Emily](user_name)
+#     - I am [Alice](user_name)
+#     - [Bob](user_name)

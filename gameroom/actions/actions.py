@@ -46,14 +46,14 @@ class ActionSaveName(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         # Fetch the user_name entity from the user's message
-        user_name = tracker.get_slot("user_name")
+        user_name = tracker.get_slot("PERSON")
 
         if not user_name:
             # If no name was provided, ask again
             dispatcher.utter_message(text="Sorry, I didn't catch your name. Could you please tell me your name?")
         else:
             # Save the name in a slot
-            return [SlotSet("user_name", user_name)]
+            return [SlotSet("PERSON", user_name)]
 
 # class ActionSaveName(Action):
 
@@ -187,6 +187,7 @@ class ActionPickUp(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("action_pickup")
         items_to_add = []
+        item_picked_up = False  # flag to track whether an item was picked up
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'object':
@@ -197,13 +198,18 @@ class ActionPickUp(Action):
                     item_in_inventory = tracker.get_slot(item)
                     if item_in_inventory:
                         dispatcher.utter_message(text=f"You already have {item} in your inventory.")
+                        item_picked_up = True # set the flag to True
                     else:
                         items_to_add.append(SlotSet(item, True))
+                        # tracker.slots[item] = True # directly set the slot
                         dispatcher.utter_message(text=f"You've picked up the {item} and it is in your inventory.")
+                        item_picked_up = True # set the flag to True
 
         if len(items_to_add) > 0:
             return items_to_add
-        dispatcher.utter_message(text="Are you sure you spelled the item you wanted to pick up correctly?")
+        # Only send the message if no items were picked up
+        if not item_picked_up:
+            dispatcher.utter_message(text="Are you sure you spelled the item you wanted to pick up correctly?")
         return []
 
 combinations = {

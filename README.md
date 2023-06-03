@@ -2,6 +2,17 @@
 
 # Changes by Taif
 
+03/06/2023
+
+*Implemented the SpaCy pipeline, which allows the extraction of common English based names from a sentence.
+*Troublshooted the issue where the action_pickup function was called after every prompt giving wrong uttering.
+For e.g Stating that the item was already in the inventory, whereas the the pickup action was being used the first time.
+*The name has to be a common English based name, AND it has to be provided in a full sentence. 
+
+
+
+
+30/05/2023
 Implemented Room 2
 Added functionality for the key, without key door doesn't open
 Key appears in the inventory on correct solution
