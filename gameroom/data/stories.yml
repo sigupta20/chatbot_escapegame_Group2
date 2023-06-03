@@ -2,10 +2,35 @@ version: "3.1"
 
 stories:
 
-# - story: happy path
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
+- story: look path
+  steps:
+  - intent: look
+  - action: action_look
+
+
+- story: pickup path
+  steps:
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - charm: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - potion: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - vessel: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - key: true
+
+- story: use path
+  steps:
+  - intent: use
+  - action: action_use
 
 #   # - intent: mood_great
 #   # - action: utter_happy

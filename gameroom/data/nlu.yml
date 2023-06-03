@@ -184,6 +184,17 @@ nlu:
     - look at the [box](object)
     - check the [vessel](object)
     - look at the [vessel](object)
+    - look [potion](object)
+    - look at the [potion](object)
+    - inspect [potion](object)
+    - what is [potion](object)
+    - check [map](object)
+    - look [map](object)
+    - look at the [map](object)
+    - inspect [map](object)
+    - what is [map](object)
+    - check [map](object)
+
 
 - intent: use
   examples: |
@@ -198,6 +209,7 @@ nlu:
     - pour [po-charm](object) in the [vessel](object)
     - combine [po-charm](object) in the [vessel](object)
     - mix [po-charm](object) and the [vessel](object)
+    - use [po-charm](object) and  [vessel](object) together
 
 - intent: inventory
   examples: |
@@ -219,12 +231,26 @@ nlu:
     - pickup the [vessel](object)
     - grab the [vessel](object)
     - take the [vessel](object)
+    - pick up the [charm](object)
     - pickup the [charm](object)
-    - pickup the [potion](object)
     - grab the [charm](object)
-    - grab the [potion](object)
     - take the [charm](object)
+    - pick up the [potion](object)
+    - pickup the [potion](object)
+    - grab the [potion](object)
     - take the [potion](object)
+    - pick up the [po-charm](object)
+    - pickup the [po-charm](object)
+    - grab the [po-charm](object)
+    - take the [po-charm](object)
+    - pick up the [key](object)
+    - pickup the [key](object)
+    - grab the [key](object)
+    - take the [key](object)
+    - pick up the [map](object)
+    - pickup the [map](object)
+    - grab the [map](object)
+    - take the [map](object)
 
 - intent: help
   examples: |
@@ -241,6 +267,7 @@ nlu:
 - lookup: object
   examples: |
     - box
+    - potion
     - table
     - vessel
     - key
@@ -268,12 +295,3 @@ nlu:
     - Most people call me [Isabella](PERSON)
     - [Lucas](PERSON) is what I go by
     - [Charlotte](PERSON) is my given name
-
-# - intent: provide_name
-#   examples: |
-#     - My name is [John](user_name)
-#     - I'm [Sarah](user_name)
-#     - Call me [Mohammed](user_name)
-#     - You can call me [Emily](user_name)
-#     - I am [Alice](user_name)
-#     - [Bob](user_name)
