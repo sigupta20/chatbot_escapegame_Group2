@@ -7,6 +7,7 @@ nlu:
     - hello
     - hi
     - hello there
+    - hallo
     - good morning
     - good evening
     - moin
@@ -16,7 +17,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-    - provide_name
 
 # - intent: goodbye
 #   examples: |
@@ -227,14 +227,17 @@ nlu:
     - Commence commence
     - Let's get started
 
-# - intent: hello_world
-#   examples: |
-#     - world
-#     - hello world
-#     - world end
-#     - ending
-#     - dying
-#     - finish
+- intent: empty_intent
+  examples: |
+    - " "
+    - ""
+    - ''
+    - 
+    - hello world
+    - world end
+    - ending
+    - dying
+    - finish
 
 
 - intent: look
@@ -372,5 +375,7 @@ nlu:
     - Most people call me [Isabella](PERSON)
     - [Lucas](PERSON) is what I go by
     - [Charlotte](PERSON) is my given name
-    - [](PERSON)
-    - my name is [](PERSON)
+    - my name is [Siddharth](PERSON)
+    - My name is [Siddharth](PERSON)
+    - [Siddharth](PERSON)
+

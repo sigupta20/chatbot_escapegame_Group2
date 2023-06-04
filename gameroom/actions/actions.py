@@ -3,7 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
-from rasa.shared.core.events import Event
+# from rasa.shared.core.events import Event
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -22,17 +22,30 @@ from rasa.shared.core.events import Event
 
 # Provide Name
 
-class ActionAskName(Action):
+# class ActionAskName(Action):
 
-    def name(self) -> Text:
-        return "action_ask_name"
+#     def name(self) -> Text:
+#         return "action_ask_name"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="May I know your name?")
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+#         dispatcher.utter_message(text="May I know your name?")
 
-        return []
+#         return []
+    
+# class ActionHelloWorld(Action):
+
+#     def name(self) -> Text:
+#         return "action_hello_world"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         dispatcher.utter_message(text="I don't understand what you are trying to say !")
+
+#         return []
 
 
 class ActionSaveName(Action):
@@ -50,23 +63,12 @@ class ActionSaveName(Action):
 
         if not user_name:
             # If no name was provided, ask again
+            user_name = "Wizard"
             dispatcher.utter_message(text="Sorry, I didn't catch your name. Could you please tell me your name?")
         else:
             # Save the name in a slot
             return [SlotSet("PERSON", user_name)]
 
-# class ActionSaveName(Action):
-
-#     def name(self) -> Text:
-#         return "action_save_name"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Event]:
-
-#         text = tracker.latest_message.get('text')
-
-#         return [SlotSet("user_name", text)]
 
 
 
@@ -106,17 +108,7 @@ class ActionUseKeyOnDoor(Action):
 
 
 
-class ActionHelloWorld(Action):
 
-    def name(self) -> Text:
-        return "action_hello_world"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="I don't understand what you are trying to say !")
-
-        return []
 
 
 able_to_pick_up = ["charm", "potion", "vessel", "key", "po-charm", "scroll"]
@@ -227,24 +219,7 @@ combination_results = {
 }
 
 
-# class ActionCastSpell(Action):
-#     def name(self) -> Text:
-#         return "action_cast_spell"
 
-#     def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any]
-#     ) -> List[Dict[Text, Any]]:
-#         has_wand = tracker.get_slot('wand')  # Check if the wand is in the inventory
-
-#         if has_wand:
-#             dispatcher.utter_message(text="You cast the spell Evanseco-Sofortum. Magic is in the air!")
-#         else:
-#             dispatcher.utter_message(text="You tried to cast a spell, but you don't have a wand in your inventory.")
-
-#         return []
 
 
 class ActionUse(Action):

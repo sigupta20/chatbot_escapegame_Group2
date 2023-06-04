@@ -2,6 +2,17 @@ version: "3.1"
 
 stories:
 
+# - story: handle empty input
+#   steps:
+#   - intent: hello_worl
+#   - action: action_hello_world
+
+
+- story: greet path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
 - story: look path
   steps:
   - intent: look
@@ -32,95 +43,45 @@ stories:
   - intent: use
   - action: action_use
 
-#   # - intent: mood_great
-#   # - action: utter_happy
 
-#   - intent: start
-#   - action: utter_start
+# #=============================================
 
-#   - intent: help
-#   - action: utter_help
+# #   # - intent: mood_great
+# #   # - action: utter_happy
 
-#   - intent: evanseco_sofortum
-#   - action: utter_evanseco
+# #   - intent: start
+# #   - action: utter_start
 
-#   - intent: Celina
-#   - action: utter_Celina
+# #   - intent: help
+# #   - action: utter_help
 
-#   - intent: get_out_of_basement
-#   - action: utter_get_out_of_basement
+# #   - intent: evanseco_sofortum
+# #   - action: utter_evanseco
 
-#   - intent: look
-#   - action: action_look
+# #   - intent: Celina
+# #   - action: utter_Celina
 
-#   - intent: inventory
-#   - action: action_inventory
+# #   - intent: get_out_of_basement
+# #   - action: utter_get_out_of_basement
 
-#   - intent: pickup
-#   - action: action_pickup
+# #   - intent: look
+# #   - action: action_look
 
-#   - slot_was_set:
-#       - charm: true
-#       - vessel: true
-#       - potion: true
-#       - key: true
+# #   - intent: inventory
+# #   - action: action_inventory
 
-#   - intent: inventory
-#   - action: action_inventory
+# #   - intent: pickup
+# #   - action: action_pickup
 
-#   - intent: use
-#   - action: action_use
+# #   - slot_was_set:
+# #       - charm: true
+# #       - vessel: true
+# #       - potion: true
+# #       - key: true
 
+# #   - intent: inventory
+# #   - action: action_inventory
 
-
-
-# - story: sad path 1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: affirm
-#   - intent: start
-#   - action: utter_start
-#   - intent: help
-#   - action: utter_help
-#   - intent: hello_world
-#   - action: action_hello_world
-#   - intent: look
-#   - action: action_look
-#   - intent: use
-#   - action: action_use
-#   - intent: start
-#   - action: utter_start
-#   - intent: evanseco_sofortum
-#   - action: utter_evanseco
-# #  - action: action_use
-
-
-# - story: sad path 2
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: deny
-#   - action: utter_goodbye
-#   - intent: start
-#   - action: utter_start
-#   - intent: help
-#   - action: utter_help
-#   - intent: hello_world
-#   - action: action_hello_world
-#   - intent: look
-#   - action: action_look
-#   - intent: use
-#   - action: action_use
-#   - intent: start
-#   - action: utter_start
-#   - intent: evanseco_sofortum
-#   - action: utter_evanseco
-# #  - action: action_use
+# #   - intent: use
+# #   - action: action_use
 

@@ -10,10 +10,23 @@ rules:
 #     - intent: provide_name
 #     - action: action_save_name
 
-- rule: simple greet rule
+# - rule: simple greet rule
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+
+
+- rule: handle empty input
   steps:
-    - intent: greet
-    - action: action_ask_name
+    - intent: empty_intent
+    - action: utter_empty
+
+- rule: User provides name
+  steps:
+    - intent: provide_name
+    - action: action_save_name
+    - action: utter_welcome
+
 
 - rule: simple evanseco sofortum rule
   steps:
@@ -36,11 +49,8 @@ rules:
     - intent: start
     - action: utter_start
 
-- rule: User provides name
-  steps:
-    - intent: provide_name
-    - action: action_save_name
-    - action: utter_greet 
+
+
 
 - rule: simple look rule
   steps:

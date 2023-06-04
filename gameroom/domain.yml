@@ -10,7 +10,7 @@ intents:
   # - bot_challenge
   # - well_being
   - help
-  # - hello_world
+  - empty_intent
   - start
   - look
   - use
@@ -21,9 +21,9 @@ intents:
   - get_out_of_basement
   - answer_riddle
   - use_key_on_door
-  - provide_name 
+  - provide_name
 
-  # Provide name ^
+
 
 entities:
   - object
@@ -114,8 +114,10 @@ slots:
     - type: from_entity
       entity: PERSON
 
+
+
+
 actions:
-  - action_hello_world
   - action_use
   - action_look
   - action_pickup
@@ -123,17 +125,24 @@ actions:
   # Room 2 action
   - action_check_answer
   - action_use_key_on_door
-  - action_ask_name
+  # - action_ask_name
   - action_save_name
   - action_cast_spell
 
 responses:
   utter_greet:
-  - text: "Hello {PERSON}! Welcome to the Hogwart's dark chambers where are trapped now by mischievous House-Elf.\
-      \ You have to escape from this chamber by passing from various rooms and find artifacts, solve puzzles to unlock yourself from each room.\
-      \ You can ask for help. Good luck {PERSON} !
-      \ You can choose options below:
-      \ --> Start
+  - text: "Hi, may I know you name please?"
+
+  utter_empty:
+   - text: "I don't understand what you are trying to say !"
+
+
+  utter_welcome:
+  - text: "Hello {PERSON}! Welcome to the Hogwart's dark chambers where are trapped now by mischievous House-Elf.
+      \ You have to escape from this chamber by passing from various rooms and find artifacts, solve puzzles to unlock yourself from each room.
+      \ You can ask for help. Good luck {PERSON} !\n
+      \ You can choose options below:\n
+      \ --> Start\n
       \ --> Help"
 
 
@@ -142,14 +151,14 @@ responses:
 
   utter_start:
   - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\
-          \ You need a spell and magical objects which will make the room walls disappear. \
-          \ Find these objects arund you and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \
+          \ You need a spell and magical objects which will make the room walls disappear. \n
+          \ Find these objects arund you and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \n
           \ Start looking around room."
 
 
   utter_evanseco:
   - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\
-          \ She is a ghost and she will ask riddles to escape from the basement.\
+          \ She is a ghost and she will ask riddles to escape from the basement.\n
           \ Go down to the basement, call her name and ask her way to exit of basement !"
 
   utter_Celina:
@@ -158,9 +167,9 @@ responses:
 
   utter_get_out_of_basement:
   - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
-  \ Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \
-  \ Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \
-  \ Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil. \
+  \ Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \n
+  \ Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \n
+  \ Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil. \n
   \ Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat."
 
 
