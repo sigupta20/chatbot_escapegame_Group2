@@ -119,7 +119,7 @@ class ActionHelloWorld(Action):
         return []
 
 
-able_to_pick_up = ["charm", "potion", "vessel", "key"]
+able_to_pick_up = ["charm", "potion", "vessel", "key", "po-charm", "scroll"]
 
 
 class ActionInventory(Action):
@@ -219,6 +219,33 @@ combinations = {
 }
 combinations.update({(i2, i1): v for (i1, i2), v in combinations.items()})
 
+combination_results = {
+    ('charm', 'potion'): "po-charm",
+    ('potion', 'charm'): "po-charm",
+    ('po-charm', 'vessel'): "scroll",
+    ('vessel', 'po-charm'): "scroll",
+}
+
+
+# class ActionCastSpell(Action):
+#     def name(self) -> Text:
+#         return "action_cast_spell"
+
+#     def run(
+#         self,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: Dict[Text, Any]
+#     ) -> List[Dict[Text, Any]]:
+#         has_wand = tracker.get_slot('wand')  # Check if the wand is in the inventory
+
+#         if has_wand:
+#             dispatcher.utter_message(text="You cast the spell Evanseco-Sofortum. Magic is in the air!")
+#         else:
+#             dispatcher.utter_message(text="You tried to cast a spell, but you don't have a wand in your inventory.")
+
+#         return []
+
 
 class ActionUse(Action):
     def name(self) -> Text:
@@ -245,9 +272,44 @@ class ActionUse(Action):
             return []
         # there are two items and they are confirmed
         item1, item2 = entities
+
+        # Inventory Challenge
+        # check if the items are in the inventory
+        if not (tracker.get_slot(item1) and tracker.get_slot(item2)):
+            dispatcher.utter_message(text="You don't have these items in your inventory.")
+            return []
+
+
+
         if (item1, item2) in combinations.keys():
             dispatcher.utter_message(text=combinations[(item1, item2)])
+            if (item1, item2) in combination_results.keys():
+                new_item = combination_results[(item1, item2)]
+                return [SlotSet(item1, False), SlotSet(item2, False), SlotSet(new_item, True)]
+            else:
+                return [SlotSet(item1, False), SlotSet(item2, False)]  # deduct the items
         else:
             dispatcher.utter_message(text=f"I don't think combining {item1} with {item2} makes sense.")
+
+        return []
+
+
+class ActionCastSpell(Action):
+    def name(self) -> Text:
+        return "action_cast_spell"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        has_scroll = tracker.get_slot('scroll')  # Check if the wand is in the inventory
+
+        if has_scroll:
+            dispatcher.utter_message(text="Good job {PERSON} ! Now you must hurry to the basement and you will find Celina there. She is a ghost and she will ask riddles to escape from the basement. Go down {PERSON} and call her name !")
+            return [SlotSet("scroll", False)] 
+        else:
+            dispatcher.utter_message(text="Drawing on all your focus, you delicately swirled your wand, your heart racing with anticipation. \nYet, despite your best efforts, the intended spell fizzled out, manifesting as a mere spark at the wand's tip and a puff of smoke that swiftly dissipated into the air. \nIt seems your knowledge is not sufficient to cast this particular spell just yet. \nAs a cloud of frustration sweeps over you, it occurs to you that perhaps you should explore your surroundings for a spell scroll, an ancient written guide that might hold the secrets to mastering this arcane art.")
 
         return []

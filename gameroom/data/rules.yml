@@ -18,7 +18,7 @@ rules:
 - rule: simple evanseco sofortum rule
   steps:
     - intent: evanseco_sofortum
-    - action: utter_evanseco
+    - action: action_cast_spell
 
 - rule: Find Celina
   steps:

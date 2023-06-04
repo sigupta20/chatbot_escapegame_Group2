@@ -89,6 +89,20 @@ slots:
     mappings:
       - type: custom
         # action: action_pickup
+        
+  po-charm:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom 
+      
+  scroll:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
 
 
 # Provide Name
@@ -111,6 +125,7 @@ actions:
   - action_use_key_on_door
   - action_ask_name
   - action_save_name
+  - action_cast_spell
 
 responses:
   utter_greet:
