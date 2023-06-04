@@ -164,6 +164,8 @@ nlu:
     - Is it possible that it's a witch in the depths of a dark palace?
     - The riddle must be referring to a witch in the murky castle.
     - A witch in a dark castle.
+    - a witch in a dark castle
+    - a witch in a dark palace
     - A witch in a dark palace.
     - A witch in the dark palace.
     - A witch in the dark castle.
@@ -208,6 +210,9 @@ nlu:
 - intent: get_out_of_basement
   examples: |
     - How can I exit the basement?
+    - i want to leave the basement.
+    - i want to escape the basement
+    - i want to exit from the basement.
     - I need to find a way out of the basement.
     - Is there a way to escape from the basement?
     - Help me get out of this basement!

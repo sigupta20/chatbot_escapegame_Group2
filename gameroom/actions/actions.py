@@ -282,7 +282,7 @@ class ActionCastSpell(Action):
         has_scroll = tracker.get_slot('scroll')  # Check if the wand is in the inventory
 
         if has_scroll:
-            dispatcher.utter_message(text="Good job {PERSON} ! Now you must hurry to the basement and you will find Celina there. She is a ghost and she will ask riddles to escape from the basement. Go down {PERSON} and call her name !")
+            dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. She is a ghost and she will ask riddles to escape from the basement. Go down and call her name !")
             return [SlotSet("scroll", False)] 
         else:
             dispatcher.utter_message(text="Drawing on all your focus, you delicately swirled your wand, your heart racing with anticipation. \nYet, despite your best efforts, the intended spell fizzled out, manifesting as a mere spark at the wand's tip and a puff of smoke that swiftly dissipated into the air. \nIt seems your knowledge is not sufficient to cast this particular spell just yet. \nAs a cloud of frustration sweeps over you, it occurs to you that perhaps you should explore your surroundings for a spell scroll, an ancient written guide that might hold the secrets to mastering this arcane art.")
