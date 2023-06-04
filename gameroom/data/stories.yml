@@ -2,29 +2,86 @@ version: "3.1"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+# - story: handle empty input
+#   steps:
+#   - intent: hello_worl
+#   - action: action_hello_world
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
 
-- story: sad path 2
+- story: greet path
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+
+- story: look path
+  steps:
+  - intent: look
+  - action: action_look
+
+
+- story: pickup path
+  steps:
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - charm: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - potion: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - vessel: true
+  - intent: pickup
+  - action: action_pickup
+  - slot_was_set:
+    - key: true
+
+- story: use path
+  steps:
+  - intent: use
+  - action: action_use
+
+
+# #=============================================
+
+# #   # - intent: mood_great
+# #   # - action: utter_happy
+
+# #   - intent: start
+# #   - action: utter_start
+
+# #   - intent: help
+# #   - action: utter_help
+
+# #   - intent: evanseco_sofortum
+# #   - action: utter_evanseco
+
+# #   - intent: Celina
+# #   - action: utter_Celina
+
+# #   - intent: get_out_of_basement
+# #   - action: utter_get_out_of_basement
+
+# #   - intent: look
+# #   - action: action_look
+
+# #   - intent: inventory
+# #   - action: action_inventory
+
+# #   - intent: pickup
+# #   - action: action_pickup
+
+# #   - slot_was_set:
+# #       - charm: true
+# #       - vessel: true
+# #       - potion: true
+# #       - key: true
+
+# #   - intent: inventory
+# #   - action: action_inventory
+
+# #   - intent: use
+# #   - action: action_use
+

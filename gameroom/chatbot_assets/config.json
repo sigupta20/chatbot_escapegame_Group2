@@ -1,0 +1,7 @@
+{
+    "name": "Magical Chambers Escape Gameroom",
+    "id": "magical-chamber-escape-game-room",
+    "background-image": "harry-potter-theme-image.jpg",
+    "api-url": "http://localhost:5005",
+    "welcome-message": "Welcome to Hogwarts myterious dark chambers."
+}

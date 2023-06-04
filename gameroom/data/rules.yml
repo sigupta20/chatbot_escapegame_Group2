@@ -2,12 +2,104 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+# Provide Name
+# - rule: Ask for user's name
+#   steps:
+#     - intent: start
+#     - action: action_ask_name
+#     - intent: provide_name
+#     - action: action_save_name
 
-- rule: Say 'I am a bot' anytime the user challenges
+# - rule: simple greet rule
+#   steps:
+#     - intent: greet
+#     - action: utter_greet
+
+
+- rule: handle empty input
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - intent: empty_intent
+    - action: utter_empty
+
+- rule: User provides name
+  steps:
+    - intent: provide_name
+    - action: action_save_name
+    - action: utter_welcome
+
+
+- rule: simple evanseco sofortum rule
+  steps:
+    - intent: evanseco_sofortum
+    - action: action_cast_spell
+
+- rule: Find Celina
+  steps:
+    - intent: Celina
+    - action: utter_Celina
+
+- rule: Celina replies
+  steps:
+    - intent: get_out_of_basement
+    - action: utter_get_out_of_basement
+
+
+- rule: simple start rule
+  steps:
+    - intent: start
+    - action: utter_start
+
+
+
+
+- rule: simple look rule
+  steps:
+    - intent: look
+    - action: action_look
+
+- rule: ask for help once
+  steps:
+    - intent: help
+    - action: utter_help
+
+# Room 2 Rule
+
+- rule: Check riddle answer
+  steps:
+  - intent: answer_riddle
+  - action: action_check_answer
+
+- rule: Use key on door
+  steps:
+  - intent: use_key_on_door
+  - action: action_use_key_on_door
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#     - intent: goodbye
+#     - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#     - intent: bot_challenge
+#     - action: utter_iamabot
+
+- rule: simple look rule
+  steps:
+    - intent: look
+    - action: action_look
+    
+- rule: inventory
+  steps:
+    - intent: inventory
+    - action: action_inventory
+
+- rule: pickup
+  steps:
+    - intent: pickup
+    - action: action_pickup
+
+- rule: use
+  steps:
+    - intent: use
+    - action: action_use

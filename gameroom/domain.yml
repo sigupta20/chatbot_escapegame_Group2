@@ -2,32 +2,195 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  # - goodbye
+  # - affirm
+  # - deny
+  # - mood_great
+  # - mood_unhappy
+  # - bot_challenge
+  # - well_being
+  - help
+  - empty_intent
+  - start
+  - look
+  - use
+  - inventory
+  - pickup
+  - evanseco_sofortum
+  - Celina
+  - get_out_of_basement
+  - answer_riddle
+  - use_key_on_door
+  - provide_name
+
+
+
+entities:
+  - object
+  - PERSON
+
+slots:
+  # charm:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+  # vessel:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       action: action_pickup
+  # potion:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+  # key:
+  #   type: bool
+  #   initial_value: False
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: custom
+  #       intent: action_pickup
+
+
+
+  charm:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
+        # action: action_pickup
+  vessel:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
+        # action: action_pickup
+  potion:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
+        # action: action_pickup
+  key:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
+        # action: action_pickup
+        
+  po-charm:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom 
+      
+  scroll:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+
+# Provide Name
+
+  PERSON:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: PERSON
+
+
+
+
+actions:
+  - action_use
+  - action_look
+  - action_pickup
+  - action_inventory
+  # Room 2 action
+  - action_check_answer
+  - action_use_key_on_door
+  # - action_ask_name
+  - action_save_name
+  - action_cast_spell
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hi, may I know you name please?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_empty:
+   - text: "I don't understand what you are trying to say !"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_welcome:
+  - text: "Hello {PERSON}! Welcome to the Hogwart's dark chambers where are trapped now by mischievous House-Elf.
+      \ You have to escape from this chamber by passing from various rooms and find artifacts, solve puzzles to unlock yourself from each room.
+      \ You can ask for help. Good luck {PERSON} !\n
+      \ You can choose options below:\n
+      \ --> Start\n
+      \ --> Help"
 
-  utter_goodbye:
-  - text: "Bye"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_help:
+  - text: "This is a text based adventure game. You're able to pick up items and you're also able to combine them in order to solve puzzles. You can try to `look`items, you might be able to `pick up` items and you can try to `use` items on other objects. Before you're able to combine items you first need to pick them up. If you get stuck, feel free to ask for a hint!"
+
+  utter_start:
+  - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\
+          \ You need a spell and magical objects which will make the room walls disappear. \n
+          \ Find these objects arund you and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \n
+          \ Start looking around room."
+
+
+  utter_evanseco:
+  - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\
+          \ She is a ghost and she will ask riddles to escape from the basement.\n
+          \ Go down to the basement, call her name and ask her way to exit of basement !"
+
+  utter_Celina:
+  - text: "Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \
+          \ Ha ha ha ha..... How about let's stay here forever? ;) Tell me what you want, don't waste my time.."
+
+  utter_get_out_of_basement:
+  - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
+  \ Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \n
+  \ Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \n
+  \ Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil. \n
+  \ Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat."
+
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  # utter_well_being:
+  # - text: "I am good and how are you?"
+
+  # utter_goodbye:
+  # - text: "Bye"
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
