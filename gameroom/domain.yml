@@ -148,9 +148,9 @@ responses:
 
 
   utter_evanseco:
-  - text: "Good job {PERSON} ! Now you must hurry to the basement and you will find Celina there.\
+  - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\
           \ She is a ghost and she will ask riddles to escape from the basement.\
-          \ Go down {PERSON} and call her name !"
+          \ Go down to the basement, call her name and ask her way to exit of basement !"
 
   utter_Celina:
   - text: "Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \

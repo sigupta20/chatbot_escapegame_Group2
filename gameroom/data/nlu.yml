@@ -372,3 +372,5 @@ nlu:
     - Most people call me [Isabella](PERSON)
     - [Lucas](PERSON) is what I go by
     - [Charlotte](PERSON) is my given name
+    - [](PERSON)
+    - my name is [](PERSON)
