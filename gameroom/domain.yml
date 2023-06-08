@@ -22,6 +22,9 @@ intents:
   - answer_riddle
   - use_key_on_door
   - provide_name
+  - sirius_black
+  - tom_riddle
+  - Alohomora
 
 
 
@@ -97,6 +100,13 @@ slots:
     mappings:
       - type: custom 
       
+  wand:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom 
+
   scroll:
     type: bool
     initial_value: False
@@ -134,7 +144,16 @@ responses:
   - text: "Hi, may I know you name please?"
 
   utter_empty:
-   - text: "I don't understand what you are trying to say !"
+  - text: "I don't understand what you are trying to say !"
+
+  utter_sirius_black:
+  - text: "Sirius: Hey, little wizard ! It's me Sirius black.\n You must help me out of the bars so that I can help you escape the chambers.\n There is a riddle on side and it's an evil wizard and call his name loudly and bars will disappear.\n Your hint: the wizard's last name is already in the text and it's a horcrux also. Who's he?"
+
+  utter_tom_riddle:
+  - text: "Sirius: Super, I am out of the bars now. We need to find a Snape's wand which is hidden here somewhere.\n Check the prison, if you find something."
+
+  utter_alohomora:
+  - text: "Congratulations! You are now out of the chambers.\n It was not easy, but you made it happen. You can return to Hogwarts now.\n This is the end of the game....!"
 
 
   utter_welcome:
@@ -157,7 +176,7 @@ responses:
 
 
   utter_evanseco:
-  - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\
+  - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\n
           \ She is a ghost and she will ask riddles to escape from the basement.\n
           \ Go down to the basement, call her name and ask her way to exit of basement !"
 

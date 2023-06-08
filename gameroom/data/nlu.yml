@@ -84,12 +84,13 @@ nlu:
 #     - so saad
 #     - so sad
 
-# - intent: bot_challenge
-#   examples: |
-#     - are you a bot?
-#     - are you a human?
-#     - am I talking to a bot?
-#     - am I talking to a human?
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
 - intent: use_key_on_door
   examples: |
     - use key on door
@@ -195,11 +196,39 @@ nlu:
     - A witch in the depths of a dark palace.
     - A witch in the murky castle.
 
+- intent: alohomora
+  examples: |
+    - Alohomora
+    - alohomora
+    - ALOHOMORA
+
 - intent: evanseco_sofortum
   examples: |
     - Evanseco-Sofortum
     - evanseco-sofortum
     - evanseco sofortum
+
+- intent: sirius_black
+  examples: |
+    - Sirius Black
+    - sirius black
+    - SIRIUS BLACK
+    - sirius
+    - serious black
+    - SERIOUS BLACK
+    - serious
+    - Serious
+    - black sirius
+
+- intent: tom_riddle
+  examples: |
+    - Tomriddle
+    - Tom riddle
+    - Tom Riddle
+    - TOM RIDDLE
+    - tom riddle
+    - riddle tom
+    - tom
 
 - intent: Celina
   examples: |
@@ -279,6 +308,21 @@ nlu:
     - inspect [map](object)
     - what is [map](object)
     - check [map](object)
+    - check the [prison][object]
+    - look the [prison][object]
+    - check [prison][object]
+    - look [prison][object]
+    - inspect [prison][object]
+    - look the [almirah][object]
+    - check [almirah][object]
+    - look [almirah][object]
+    - inspect [almirah][object]
+    - look the [wand][object]
+    - check [wand][object]
+    - look [wand][object]
+    - inspect [wand][object] 
+     
+
 
 
 - intent: use
@@ -336,6 +380,12 @@ nlu:
     - pickup the [map](object)
     - grab the [map](object)
     - take the [map](object)
+    - grab [wand](object)
+    - pickup [wand](object)
+    - pick up [wand](object)
+    - seize [wand](object)
+    - hold the [wand](object)
+    - keep the [wand](object)
 
 - intent: help
   examples: |
@@ -360,6 +410,8 @@ nlu:
     - charm
     - room
     - po-charm
+    - prison
+    - wand
 
 # Provide Name
 

@@ -100,7 +100,10 @@ class ActionUseKeyOnDoor(Action):
         has_key = tracker.get_slot('key')
 
         if has_key:
-            dispatcher.utter_message(text="You used the key on the door and it opens. Congratulations, you've escaped from the basement!")
+            dispatcher.utter_message(text="Awesome, we are out of the basement now and entered into the Prisons of Azkaban.")
+            dispatcher.utter_message(text="First, escape the prisoner and he will guide you to escape from here.")
+            dispatcher.utter_message(text="You need to call his name, so that the cell can appear and you will be able to see him. ")
+            dispatcher.utter_message(text="Your hint: He's a prisoner of Azkaban and harry potter's godfather!")
         else:
             dispatcher.utter_message(text="You tried to open the door, but it's locked. You need a key.")
 
@@ -111,7 +114,7 @@ class ActionUseKeyOnDoor(Action):
 
 
 
-able_to_pick_up = ["charm", "potion", "vessel", "key", "po-charm", "scroll"]
+able_to_pick_up = ["charm", "potion", "vessel", "key", "po-charm", "scroll", "wand"]
 
 
 class ActionInventory(Action):
@@ -134,7 +137,7 @@ class ActionInventory(Action):
 
         dispatcher.utter_message(text="These are the items in your inventory:")
         for item in items_in_inventory:
-            dispatcher.utter_message(text=f"- {item}")
+            dispatcher.utter_message(text=f"-{item}")
 
         return []
 
@@ -147,7 +150,10 @@ look_descriptions = {
     "vessel": "It's a transfiguration vessel. Peple used these, to mix things together.",
     "room": "I can see a table, a box in the corner and a transfiguration vessel lying on the ground.",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
-    "map": "It is a map of Hogwarts. Doesn't look that important."
+    "map": "It is a map of Hogwarts. Doesn't look that important.",
+    "prison": "It's a dark and scary prison. As far as I can see, I can only see spider's web and an old almirah in the corner",
+    "almirah": "It's an old magical piece and I can see a magical wand inside it",
+    "wand": "This is snap's wand, one of powerful wands exists. I am not sure, why it is here."
 }
 
 
@@ -166,7 +172,7 @@ class ActionLook(Action):
                 dispatcher.utter_message(text=look_descriptions[blob['value']])
                 spoken = True
         if not spoken:
-            dispatcher.utter_message(text="Could you specify clearly, what you're trying to look or check at?")
+            dispatcher.utter_message(text="Could you specify clearly, what you're trying to look?")
         return []
 
 
@@ -196,6 +202,9 @@ class ActionPickUp(Action):
                         # tracker.slots[item] = True # directly set the slot
                         dispatcher.utter_message(text=f"You've picked up the {item} and it is in your inventory.")
                         item_picked_up = True # set the flag to True
+                        if item == 'wand':
+                            dispatcher.utter_message(text=f"Sirius: We are at the door now. To unlock the door, use wand and the spell Alohomora !")
+
 
         if len(items_to_add) > 0:
             return items_to_add
@@ -208,6 +217,7 @@ combinations = {
     ('charm', 'potion'): "Wow, you have created Po-charm, now put it inside vessel and we are ready...",
     ('po-charm', 'vessel'): "Super! Now time to use your wand harry and cast spell - Evanseco-Sofortum !",
     ('key', 'door'): "Why put the key back in the box? It's probably super useful.",
+    ('wand', 'prison'): "Super, wand is illuminating now, say - Alohomora"
 }
 combinations.update({(i2, i1): v for (i1, i2), v in combinations.items()})
 
@@ -215,7 +225,7 @@ combination_results = {
     ('charm', 'potion'): "po-charm",
     ('potion', 'charm'): "po-charm",
     ('po-charm', 'vessel'): "scroll",
-    ('vessel', 'po-charm'): "scroll",
+    ('vessel', 'po-charm'): "scroll"
 }
 
 

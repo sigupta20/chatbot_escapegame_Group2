@@ -33,6 +33,21 @@ rules:
     - intent: evanseco_sofortum
     - action: action_cast_spell
 
+- rule: simple alohomora rule
+  steps:
+    - intent: alohomora
+    - action: utter_alohomora
+
+- rule: Find sirius black
+  steps:
+    - intent: sirius_black
+    - action: utter_sirius_black
+
+- rule: Find the wand rule
+  steps:
+    - intent: tom_riddle
+    - action: utter_tom_riddle
+
 - rule: Find Celina
   steps:
     - intent: Celina
