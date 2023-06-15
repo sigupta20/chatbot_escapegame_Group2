@@ -18,71 +18,6 @@ nlu:
     - goodevening
     - good afternoon
 
-# - intent: goodbye
-#   examples: |
-#     - cu
-#     - good by
-#     - cee you later
-#     - good night
-#     - bye
-#     - goodbye
-#     - have a nice day
-#     - see you around
-#     - bye bye
-#     - see you later
-
-# - intent: affirm
-#   examples: |
-#     - yes
-#     - y
-#     - indeed
-#     - of course
-#     - that sounds good
-#     - correct
-
-# - intent: deny
-#   examples: |
-#     - no
-#     - n
-#     - never
-#     - I don't think so
-#     - don't like that
-#     - no way
-#     - not really
-
-# - intent: mood_great
-#   examples: |
-#     - perfect
-#     - great
-#     - amazing
-#     - feeling like a king
-#     - wonderful
-#     - I am feeling very good
-#     - I am great
-#     - I am amazing
-#     - I am going to save the world
-#     - super stoked
-#     - extremely good
-#     - so so perfect
-#     - so good
-#     - so perfect
-
-# - intent: mood_unhappy
-#   examples: |
-#     - my day was horrible
-#     - I am sad
-#     - I don't feel very well
-#     - I am disappointed
-#     - super sad
-#     - I'm so sad
-#     - sad
-#     - very sad
-#     - unhappy
-#     - not good
-#     - not very good
-#     - extremly sad
-#     - so saad
-#     - so sad
 
 - intent: bot_challenge
   examples: |
@@ -98,24 +33,6 @@ nlu:
     - open the door using the key
     - I want to use the key on the door
 
-# - intent: answer_riddle
-#   examples: |
-#     - A witch in the dark castle
-#     - It's a witch in a dark castle
-#     - Is it a witch in the dark castle?
-#     - The answer is a witch in the dark castle
-#     - I think it's a witch in the dark castle
-#     - My answer is a witch in the dark palace
-#     - Could it be a witch in the dark castle?
-#     - The riddle's answer is a witch in the dark castle
-#     - A witch in a dark castle
-#     - It's a witch in a dark castle
-#     - Is it a witch in a dark palace?
-#     - The answer is a witch in a dark castle
-#     - I think it's a witch in a dark castle
-#     - My answer is a witch in a dark palace
-#     - Could it be a witch in a dark castle?
-#     - The riddle's answer is a witch in the dark palace
 
 - intent: answer_riddle
   examples: |
@@ -136,6 +53,15 @@ nlu:
     - Perhaps a witch amidst the eerie castle is the answer.
     - Could the response be a witch in the obscurity of a palace?
     - The answer is a witch in a dark castle.
+    - witch dark castle
+    - witch dark palace
+    - palace witch dark
+    - dark palace witch
+    - dark castle witch
+    - night castle witch
+    - castle night witch
+    - night witch castle
+    - night witch palace
     - It's a witch in a dark palace.
     - I think it's a witch in the dark palace.
     - Could it be a witch in the dark castle?
@@ -260,6 +186,8 @@ nlu:
     - begin Begin
     - Commence commence
     - Let's get started
+    - proceed
+    - go ahead
 
 - intent: empty_intent
   examples: |
@@ -277,6 +205,10 @@ nlu:
 - intent: look
   examples: |
     - look around [room](object)
+    - check [room](object)
+    - inspect [room](object)
+    - what is in the [room](object)
+    - show me [room](object)
     - what is inside the [room](object)
     - look at the [table](object)
     - look in the [box](object)
@@ -412,27 +344,4 @@ nlu:
     - po-charm
     - prison
     - wand
-
-# Provide Name
-
-- intent: provide_name
-  examples: |
-    - You may refer to me as [Elizabeth](PERSON)
-    - My full name is [James Smith](PERSON)
-    - They call me [Jenny](PERSON)
-    - I go by [Tom](PERSON)
-    - Just call me [Maria](PERSON)
-    - People often refer to me as [Mark](PERSON)
-    - [Rachel](PERSON) is my name
-    - [Leo](PERSON), that's my name
-    - My friends call me [Jessie](PERSON)
-    - [Benjamin](PERSON), that's what people call me
-    - I'm also known as [Sophie](PERSON)
-    - [Oscar](PERSON) is my name
-    - Most people call me [Isabella](PERSON)
-    - [Lucas](PERSON) is what I go by
-    - [Charlotte](PERSON) is my given name
-    - my name is [Siddharth](PERSON)
-    - My name is [Siddharth](PERSON)
-    - [Siddharth](PERSON)
 

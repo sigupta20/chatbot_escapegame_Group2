@@ -22,75 +22,7 @@ from rasa_sdk.types import DomainDict
 
 # Provide Name
 
-# class ActionAskName(Action):
 
-#     def name(self) -> Text:
-#         return "action_ask_name"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#         dispatcher.utter_message(text="May I know your name?")
-
-#         return []
-    
-# class ActionHelloWorld(Action):
-
-#     def name(self) -> Text:
-#         return "action_hello_world"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         dispatcher.utter_message(text="I don't understand what you are trying to say !")
-
-#         return []
-
-
-class ActionSaveName(Action):
-    def name(self) -> Text:
-        return "action_save_name"
-
-    async def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any]
-    ) -> List[Dict[Text, Any]]:
-        # Fetch the user_name entity from the user's message
-        user_name = tracker.get_slot("PERSON")
-
-        if not user_name:
-            # If no name was provided, ask again
-            user_name = "Wizard"
-            dispatcher.utter_message(text="Sorry, I didn't catch your name. Could you please tell me your name?")
-        else:
-            # Save the name in a slot
-            return [SlotSet("PERSON", user_name)]
-
-
-
-
-
-
-
-# Room 2 Action Check Riddle
-class ActionCheckAnswer(Action):
-    def name(self):
-        return "action_check_answer"
-
-    def run(self, dispatcher, tracker, domain):
-        user_answer = tracker.latest_message.get('text')
-        correct_answer = "A witch in the dark castle"
-
-        if user_answer.lower() == correct_answer.lower():
-            dispatcher.utter_message(text="Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement-door.")
-            return [SlotSet("key", True)]       
-        else:
-            dispatcher.utter_message(text="I'm afraid that's not correct.")
-        
-        return []
 
 class ActionUseKeyOnDoor(Action):
     def name(self):
@@ -145,10 +77,10 @@ class ActionInventory(Action):
 
 look_descriptions = {
     "table": "It is a black carved table. It has a concealment charm and a map on the top of it.",
-    "box": "It's a wooden box. There's a potion inside of it.",
+    "box": "It's a wooden box. There's a potion inside of it. Do you wanna to grab it?",
     "potion": "It is a magical potion which makes a spell work.",
-    "vessel": "It's a transfiguration vessel. Peple used these, to mix things together.",
-    "room": "I can see a table, a box in the corner and a transfiguration vessel lying on the ground.",
+    "vessel": "It's a transfiguration vessel. People used these vessels, to mix things together.",
+    "room": "It a very dark and withered room. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
     "map": "It is a map of Hogwarts. Doesn't look that important.",
     "prison": "It's a dark and scary prison. As far as I can see, I can only see spider's web and an old almirah in the corner",
