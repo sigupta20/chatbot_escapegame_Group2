@@ -240,19 +240,19 @@ nlu:
     - inspect [map](object)
     - what is [map](object)
     - check [map](object)
-    - check the [prison][object]
-    - look the [prison][object]
-    - check [prison][object]
-    - look [prison][object]
-    - inspect [prison][object]
-    - look the [almirah][object]
-    - check [almirah][object]
-    - look [almirah][object]
-    - inspect [almirah][object]
-    - look the [wand][object]
-    - check [wand][object]
-    - look [wand][object]
-    - inspect [wand][object] 
+    - check the [prison](object)
+    - look the [prison](object)
+    - check [prison](object)
+    - look [prison](object)
+    - inspect [prison](object)
+    - look the [almirah](object)
+    - check [almirah](object)
+    - look [almirah](object)
+    - inspect [almirah](object)
+    - look the [wand](object)
+    - check [wand](object)
+    - look [wand](object)
+    - inspect [wand](object)
      
 
 
