@@ -33,9 +33,7 @@ class ActionUseKeyOnDoor(Action):
 
         if has_key:
             dispatcher.utter_message(text="Awesome, we are out of the basement now and entered into the Prisons of Azkaban.")
-            dispatcher.utter_message(text="First, escape the prisoner and he will guide you to escape from here.")
-            dispatcher.utter_message(text="You need to call his name, so that the cell can appear and you will be able to see him. ")
-            dispatcher.utter_message(text="Your hint: He's a prisoner of Azkaban and harry potter's godfather!")
+            dispatcher.utter_message(text="First, escape the prisoner and he will guide you to escape from here. You need to call his name, so that the cell can appear and you will be able to see him. Your hint: He's a prisoner of Azkaban and harry potter's godfather!")
         else:
             dispatcher.utter_message(text="You tried to open the door, but it's locked. You need a key.")
 
@@ -76,10 +74,10 @@ class ActionInventory(Action):
 
 
 look_descriptions = {
-    "table": "It is a black carved table. It has a concealment charm and a map on the top of it.",
-    "box": "It's a wooden box. There's a potion inside of it. Do you wanna to grab it?",
+    "table": "It is a black carved table. It has a concealment charm and a map on the top of it. We can inspect them one by one.",
+    "box": "It's a wooden box. There's a potion inside of it. May be we should it pick it.",
     "potion": "It is a magical potion which makes a spell work.",
-    "vessel": "It's a transfiguration vessel. People used these vessels, to mix things together.",
+    "vessel": "It's a transfiguration vessel. People used these vessels, to mix things together. It can be super useful.",
     "room": "It a very dark and withered room. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
     "map": "It is a map of Hogwarts. Doesn't look that important.",
@@ -135,7 +133,7 @@ class ActionPickUp(Action):
                         dispatcher.utter_message(text=f"You've picked up the {item} and it is in your inventory.")
                         item_picked_up = True # set the flag to True
                         if item == 'wand':
-                            dispatcher.utter_message(text=f"Sirius: We are at the door now. To unlock the door, use wand and the spell Alohomora !")
+                            dispatcher.utter_message(text=f"Sirius: Well done! You finally found the snape's wand. Let's hurry up. We are at the door now. To unlock the prison, use the wand and cast spell Alohomora !")
 
 
         if len(items_to_add) > 0:

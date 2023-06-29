@@ -12,7 +12,7 @@ config = {
             "id": "magical-chamber-room",
             "background-image": "harry-potter-theme-image.jpg",
             "api_url": "http://localhost:5005",
-            "welcome-message": "Welcome to Hogwarts, mysterious dark chambers...."
+            "welcome-message": "Hi Wizard ! Welcome to the Hogwart's dark chambers where you are trapped by mischievous House-Elf. You have to escape from this chamber by passing from various rooms and find artifacts, solve puzzles to unlock yourself from each room. You can ask for help. Good luck !\n You can choose one options:- Start or Help"
         }
     ]
 };
