@@ -176,6 +176,8 @@ nlu:
   examples: |
     - How can I exit the basement?
     - i want to leave the basement.
+    - I want to get out of the basement
+    - i want to exit the basement
     - i want to escape the basement
     - i want to exit from the basement.
     - I need to find a way out of the basement.

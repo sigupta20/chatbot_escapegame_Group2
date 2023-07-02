@@ -235,6 +235,6 @@ class ActionCastSpell(Action):
             dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. Ask her way to escape from basement. She is a ghost and she will ask riddles to help you escape from the basement. Go down and call her name !")
             return [SlotSet("scroll", False)] 
         else:
-            dispatcher.utter_message(text="Spell is not correct. Please try again and cast the spell Evanseco Sofortum!")
+            dispatcher.utter_message(text="You don't have correct items in your inventory to cast the spell. Please check your inventory or pickup the item(s) to cast the spell.")
 
         return []

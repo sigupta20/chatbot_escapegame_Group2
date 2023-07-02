@@ -19,6 +19,7 @@ intents:
   - sirius_black
   - tom_riddle
   - alohomora
+  - instruction
 
 
 
@@ -133,7 +134,7 @@ responses:
   utter_evanseco:
   - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\n
           \ She is a ghost and she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n
-          \ Go down to the basement, call her name and ask her way to exit of basement !"
+          \ Now, call her name and ask her way to exit of basement !"
 
   utter_Celina:
   - text: "Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \
