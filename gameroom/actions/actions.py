@@ -33,15 +33,25 @@ class ActionUseKeyOnDoor(Action):
 
         if has_key:
             dispatcher.utter_message(text="Awesome, we are out of the basement now and entered into the Prisons of Azkaban.")
-            dispatcher.utter_message(text="First, escape the prisoner and he will guide you to escape from here. You need to call his name, so that the cell can appear and you will be able to see him. Your hint: He's a prisoner of Azkaban and harry potter's godfather!")
+            dispatcher.utter_message(text="Now, you must help to escape a prisoner, who was also trapped here by Lord Volde...! He will guide you to escape from the prison walls. You need to call his name, so that the cell can appear, which is hidden by magic and you will be able to see him. Your hint: He's a prisoner of Azkaban and harry potter's godfather!")
         else:
             dispatcher.utter_message(text="You tried to open the door, but it's locked. You need a key.")
 
         return []
 
+class ActionUseWandontheWalls(Action):
+    def name(self):
+        return "action_use_wand_on_walls"
 
+    def run(self, dispatcher, tracker, domain):
+        has_wand = tracker.get_slot('wand')
 
+        if has_wand:
+            dispatcher.utter_message(text="Super, wand is illuminating now, cast the spell - Alohomora!")
+        else:
+            dispatcher.utter_message(text="You tried to unlock the prison walls, but it's locked. You need a wand.")
 
+        return []
 
 
 able_to_pick_up = ["charm", "potion", "vessel", "key", "po-charm", "scroll", "wand"]
@@ -133,7 +143,7 @@ class ActionPickUp(Action):
                         dispatcher.utter_message(text=f"You've picked up the {item} and it is in your inventory.")
                         item_picked_up = True # set the flag to True
                         if item == 'wand':
-                            dispatcher.utter_message(text=f"Sirius: Well done! You finally found the snape's wand. Let's hurry up. We are at the door now. To unlock the prison, use the wand and cast spell Alohomora !")
+                            dispatcher.utter_message(text=f"Sirius: Well done! You finally found the snape's wand. Let's hurry up. We are at the prison walls now. To unlock the prison, use your wand on the walls.")
 
 
         if len(items_to_add) > 0:
@@ -147,7 +157,7 @@ combinations = {
     ('charm', 'potion'): "Wow, you have created Po-charm, now put it inside vessel and we are ready...",
     ('po-charm', 'vessel'): "Super! Now time to use your wand harry and cast spell - Evanseco-Sofortum !",
     ('key', 'door'): "Why put the key back in the box? It's probably super useful.",
-    ('wand', 'prison'): "Super, wand is illuminating now, say - Alohomora"
+    ('wand', 'walls'): "Super, wand is illuminating now, cast the spell - Alohomora!"
 }
 combinations.update({(i2, i1): v for (i1, i2), v in combinations.items()})
 
@@ -222,9 +232,9 @@ class ActionCastSpell(Action):
         has_scroll = tracker.get_slot('scroll')  # Check if the wand is in the inventory
 
         if has_scroll:
-            dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. She is a ghost and she will ask riddles to escape from the basement. Go down and call her name !")
+            dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. Ask her way to escape from basement. She is a ghost and she will ask riddles to help you escape from the basement. Go down and call her name !")
             return [SlotSet("scroll", False)] 
         else:
-            dispatcher.utter_message(text="Drawing on all your focus, you delicately swirled your wand, your heart racing with anticipation. \nYet, despite your best efforts, the intended spell fizzled out, manifesting as a mere spark at the wand's tip and a puff of smoke that swiftly dissipated into the air. \nIt seems your knowledge is not sufficient to cast this particular spell just yet. \nAs a cloud of frustration sweeps over you, it occurs to you that perhaps you should explore your surroundings for a spell scroll, an ancient written guide that might hold the secrets to mastering this arcane art.")
+            dispatcher.utter_message(text="Spell is not correct. Please try again and cast the spell Evanseco Sofortum!")
 
         return []

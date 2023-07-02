@@ -56,6 +56,11 @@ rules:
     - intent: help
     - action: utter_help
 
+- rule: game instructions
+  steps:
+    - intent: instruction
+    - action: utter_instruction
+
 # Room 2 Rule
 
 - rule: Check riddle answer
@@ -68,6 +73,11 @@ rules:
   steps:
   - intent: use_key_on_door
   - action: action_use_key_on_door
+
+- rule: Use wand on the walls
+  steps:
+  - intent: use_wand_on_wall
+  - action: action_use_wand_on_walls
 
 # - rule: Say goodbye anytime the user says goodbye
 #   steps:

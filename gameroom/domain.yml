@@ -14,6 +14,7 @@ intents:
   - get_out_of_basement
   - answer_riddle
   - use_key_on_door
+  - use_wand_on_wall
   - provide_name
   - sirius_black
   - tom_riddle
@@ -68,7 +69,7 @@ slots:
     mappings:
       - type: custom 
   
-  prison:
+  walls:
     type: bool
     initial_value: False
     influence_conversation: false
@@ -92,13 +93,14 @@ actions:
   - action_inventory
   - action_use_key_on_door
   - action_cast_spell
+  - action_use_wand_on_walls
 
 responses:
   utter_empty:
   - text: "I don't understand what you are trying to say !"
 
   utter_sirius_black:
-  - text: "Sirius: Hey, little wizard ! It's me Sirius black.\n You must help me out of the bars so that I can help you escape the chambers.\n There is a riddle on side and it's an evil wizard and call his name loudly and bars will disappear.\n Your hint: It's the other name of evil Lord Voldemort.... Who's he?"
+  - text: "Sirius: Hey, little wizard ! It's me Sirius black.\n You must help me out of the bars so that I can help you escape the chambers.\n For that, you need to call the name of an evil wizard ( you know who !) which is the key to open the cell. Call his name loudly and bars will disappear.\n Your hint: It's the other name of evil Lord Voldemort.... Who's he?"
 
   utter_tom_riddle:
   - text: "Sirius: Super, I am out of the bars now. We need to find a Snape's wand which is hidden here somewhere.\n Check the prison, if you find something."
@@ -108,14 +110,21 @@ responses:
 
 
   utter_greet:
-  - text: "Hi Wizard ! Welcome to the Hogwart's dark chambers where you are currently trapped by mischievous House-Elf.
+  - text: "Hi Wizard ! Welcome to the Hogwart's dark chambers where you are trapped by evil Lord Voldemort! He wants you to be trapped here forever. But you must find your way to escape, so that you can return to Hogwart's.
       \ You have to escape from this chamber by passing from various rooms and find artifacts, solve puzzles to unlock yourself from each room.
-      \ You can ask for help. Good luck !\n
-      \ You can choose one option:- Start or Help"
+      \ You can ask for help/hint if you lost in game. Good luck !\n
+      \ You can choose one option:- Start or Instructions"
 
+
+  utter_instruction:
+  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: inspect room and room details will be provided. You can then check or look each item mentioned in the room. If you think an item is useful, then pickup that item. For example: pickup key or pickup potion. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it. Choose 'Start' to begin the game."
 
   utter_help:
-  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: inspect room and room details will be provided. You can then check or look each item mentioned in the room. If you think an item is useful, then pickup that item. For example: pickup key or pickup potion. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it."
+  - text: "The game has three rooms. Always remember the room name, it will help to find the objects in that room and to get clear response from the guide.\n
+      \ Hint Room1:- In first room, you have to find three objects and pickup them. Once you find all three objects, check your inventory and start combine/mix them with each other. You can only combine two objects at a time.\n
+      \ Hint Room2:- In second room, ask - how to exit to from the room and you will be provided riddles to solve. There will be three riddles to solve and you have to make a sentence from the three riddles. If you guess the riddles correctly, you will provided instructions to  exit the room. Remember, do not forget to pick the item, before you try to use them.\n
+      \ Hint Room3:- In third room, you have to solve two puzzles and find one object (which you can pick). Two puzzles are based on harry potter characters. LastName or Surname of first character is 'Black' and of second character is 'Riddle'. Use the object on the room-name to exit."
+
 
   utter_start:
   - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \n Start looking room."

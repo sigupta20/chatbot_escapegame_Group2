@@ -33,6 +33,16 @@ nlu:
     - open the door using the key
     - I want to use the key on the door
 
+- intent: use_wand_on_wall
+  examples: |
+    - use wand on the walls
+    - unlock the walls with the wand
+    - open the walls using the wand
+    - I want to use the wand on the walls
+    - combine wand with the walls
+    - hover wand on the walls
+    - use wand on the prison walls
+    - use your wand on the prison walls
 
 - intent: answer_riddle
   examples: |
@@ -322,14 +332,27 @@ nlu:
 - intent: help
   examples: |
     - help
-    - how does this game work
-    - what commands can i use
+    - hint
+    - i need a hint
+    - i need help
+    - i am stuck
+    - how to exit from here?
+    - what shall I do now?
+    - what next?
+
+- intent: instruction
+  examples: |
+    - instructions
+    - how does this game work?
+    - what commands can i use?
     - how does this work?
     - please help me
+    - please guide me
     - i do not understand this
     - what can i do?
     - where am i?
-
+    - game instructions
+    - instruction
 
 - lookup: object
   examples: |
