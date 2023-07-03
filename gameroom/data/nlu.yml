@@ -216,12 +216,12 @@ nlu:
 
 - intent: look
   examples: |
-    - look around [room](object)
-    - check [room](object)
-    - inspect [room](object)
-    - what is in the [room](object)
-    - show me [room](object)
-    - what is inside the [room](object)
+    - look around [chamber](object)
+    - check [chamber](object)
+    - inspect [chamber](object)
+    - what is in the [chamber](object)
+    - show me [chamber](object)
+    - what is inside the [chamber](object)
     - look at the [table](object)
     - look in the [box](object)
     - look at the [charm](object)
@@ -230,8 +230,8 @@ nlu:
     - inspect [map](object)
     - check [charm](object)
     - check [map](object)
-    - look inside the [room](object)
-    - watch around [room](object)
+    - look inside the [chamber](object)
+    - watch around [chamber](object)
     - watch inside the [walls](object)
     - i want to look at the [table](object)
     - i want to look at the [box](object)
@@ -365,7 +365,7 @@ nlu:
     - key
     - map
     - charm
-    - room
+    - chamber
     - po-charm
     - prison
     - wand

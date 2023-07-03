@@ -88,7 +88,7 @@ look_descriptions = {
     "box": "It's a wooden box. There's a potion inside of it. May be we should it pick it.",
     "potion": "It is a magical potion which makes a spell work.",
     "vessel": "It's a transfiguration vessel. People used these vessels, to mix things together. It can be super useful.",
-    "room": "It a very dark and withered room. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
+    "chamber": "It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
     "map": "It is a map of Hogwarts. Doesn't look that important.",
     "prison": "It's a dark and scary prison. As far as I can see, I can only see spider's web and an old almirah in the corner",

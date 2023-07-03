@@ -118,7 +118,7 @@ responses:
 
 
   utter_instruction:
-  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: inspect room and room details will be provided. You can then check or look each item mentioned in the room. If you think an item is useful, then pickup that item. For example: pickup key or pickup potion. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it. Choose 'Start' to begin the game."
+  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: 'inspect room-name' and room details will be provided. You can then check or look each item mentioned in the room like 'look item-name'. If you think an item is useful, then pickup that item. For example: 'pickup item-name'. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it. Choose 'Start' to begin the game."
 
   utter_help:
   - text: "The game has three rooms. Always remember the room name, it will help to find the objects in that room and to get clear response from the guide.\n
@@ -128,7 +128,7 @@ responses:
 
 
   utter_start:
-  - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls around the room disappear into thin air ! \n Start looking room."
+  - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls disappear around the chamber into thin air ! \n Start looking chamber."
 
 
   utter_evanseco:
