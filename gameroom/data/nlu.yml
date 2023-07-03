@@ -335,6 +335,11 @@ nlu:
   examples: |
     - help
     - hint
+    - i want to escape
+    - i want to get out
+    - help me escape
+    - how to exit?
+    - help me escape
     - i need a hint
     - i need help
     - i am stuck
