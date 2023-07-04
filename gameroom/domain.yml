@@ -132,8 +132,8 @@ responses:
 
 
   utter_evanseco:
-  - text: "Good job ! Now you must hurry to the basement and you will find Celina there.\n
-          \ She is a ghost and she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n
+  - text: "Good job ! Now we are in the basement and we will meet 'Celina' here.\n
+          \ She is a ghost and trapped here by Voldemort. She can help us but she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n
           \ Now, call her name and ask her way to exit of basement !"
 
   utter_Celina:
@@ -148,7 +148,7 @@ responses:
   \ Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat."
 
   utter_riddle_solved:
-  - text: "Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement-door."
+  - text: "Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement door to unlock it."
 
 
 session_config:
