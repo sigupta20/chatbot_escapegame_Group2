@@ -232,7 +232,7 @@ class ActionCastSpell(Action):
         has_scroll = tracker.get_slot('scroll')  # Check if the wand is in the inventory
 
         if has_scroll:
-            dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. Ask her way to escape from basement. She is a ghost and she will ask riddles to help you escape from the basement. Go down and call her name !")
+            dispatcher.utter_message(text="Good job ! Now we are in the basement and we will meet 'Celina' here.\n She is a ghost and trapped here by Voldemort. She can help us but she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n Now, call her name and ask her way to exit the basement !")
             return [SlotSet("scroll", False)] 
         else:
             dispatcher.utter_message(text="You don't have correct items in your inventory to cast the spell. Please check your inventory or pickup the item(s) to cast the spell.")
