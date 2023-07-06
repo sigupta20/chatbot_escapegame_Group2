@@ -44,93 +44,146 @@ nlu:
     - use wand on the prison walls
     - use your wand on the prison walls
 
-- intent: answer_riddle
+- intent: answer_first_riddle
   examples: |
-    - Could the riddle refer to a witch in a gloomy castle?
-    - Is the enigma's answer a witch situated in a somber palace?
-    - The solution might be a witch hiding in a castle enshrouded in darkness.
-    - What about a witch in the heart of a shadowy palace?
-    - The answer could be a witch tucked away in a brooding castle.
-    - I bet it's a witch within a palace concealed in darkness.
-    - Might the solution be a witch occupying a twilight castle?
-    - I'd suggest a witch lurking in a palace veiled by the dark.
-    - My conjecture is a witch in the cryptic castle.
-    - Does the riddle imply a witch in the twilight of a palace?
-    - Is the witch in the castle submerged in the dark the correct answer?
-    - Is it referring to a witch within the palace of nightfall?
-    - Could it be a witch taking refuge in a castle blanketed by the night?
-    - It might be a witch in a palace swathed in shadows.
-    - Perhaps a witch amidst the eerie castle is the answer.
-    - Could the response be a witch in the obscurity of a palace?
-    - The answer is a witch in a dark castle.
-    - witch dark castle
-    - witch dark palace
-    - palace witch dark
-    - dark palace witch
-    - dark castle witch
-    - night castle witch
-    - castle night witch
-    - night witch castle
-    - night witch palace
-    - It's a witch in a dark palace.
-    - I think it's a witch in the dark palace.
-    - Could it be a witch in the dark castle?
-    - Maybe it's a witch in a dark palace?
-    - I would say a witch in the dark palace.
-    - My guess would be a witch in a dark castle.
-    - I'm thinking it's a witch in the dark castle.
-    - Is it a witch in a dark palace?
-    - I believe it's a witch in a dark castle.
-    - The riddle's answer is a witch in a dark palace, isn't it?
-    - It has to be a witch in a dark castle.
-    - The solution is a witch in a dark palace.
-    - I'm pretty sure it's a witch in a dark castle.
-    - Is a witch in a dark castle the answer?
-    - It must be a witch in the palace when it's dark.
-    - I'm guessing a witch in the dark palace is the solution.
-    - I suspect it's a witch in a castle shrouded in darkness.
-    - The solution could be a witch in the gloomy castle.
-    - Could the answer be the witch in a shadowy palace?
-    - Is the riddle's solution the witch in the castle of darkness?
-    - I reckon the answer is a witch dwelling in a dark palace.
-    - Is the response a witch in a castle under the cover of darkness?
-    - I propose it's a witch residing in a dimly lit palace.
-    - Perhaps the answer is the witch in the somber castle.
-    - My best guess is a witch in the darkened palace.
-    - I would wager it's a witch within the darkness of a castle.
-    - Is it possible that it's a witch in the depths of a dark palace?
-    - The riddle must be referring to a witch in the murky castle.
-    - A witch in a dark castle.
-    - a witch in a dark castle
-    - a witch in a dark palace
-    - A witch in a dark palace.
-    - A witch in the dark palace.
-    - A witch in the dark castle.
-    - A witch in a dark palace.
-    - A witch in the dark palace.
-    - A witch in a dark castle.
-    - A witch in the dark castle.
-    - A witch in a dark palace.
-    - A witch in a dark castle.
-    - A witch in a dark palace.
-    - A witch in a dark castle.
-    - A witch in a dark palace.
-    - A witch in a dark castle.
-    - A witch in a dark castle.
-    - A witch in the palace when it's dark.
-    - A witch in the dark palace.
-    - A witch in a castle shrouded in darkness.
-    - A witch in the gloomy castle.
-    - The witch in a shadowy palace.
-    - The witch in the castle of darkness.
-    - A witch dwelling in a dark palace.
-    - A witch in a castle under the cover of darkness.
-    - A witch residing in a dimly lit palace.
-    - The witch in the somber castle.
-    - A witch in the darkened palace.
-    - A witch within the darkness of a castle.
-    - A witch in the depths of a dark palace.
-    - A witch in the murky castle.
+    - I believe the answer to the riddle is the night.
+    - The riddle might be talking about the darkness.
+    - Is it the twilight we're talking about?
+    - It could be the moonlight night.
+    - Could it refer to the dark hours after sunset?
+    - Perhaps, it is the black of night.
+    - Might the answer be the nightfall?
+    - It seems to point towards the dusk.
+    - Is the answer to this riddle the dark sky?
+    - Could it be the nightly hours?
+    - I think it might be referring to the dark of night.
+    - I reckon it's the time when it's dark, the night.
+    - Could it be about the obscurity of the night?
+    - Isn't it the evening we're talking about?
+
+- intent: answer_second_riddle
+  examples: |
+    - Is it a castle we're talking about?
+    - I believe the answer is fortress.
+    - Could it be a stronghold or bastion?
+    - Is the answer a citadel perhaps?
+    - The riddle might refer to a towered structure, a castle.
+    - I think it could be pointing towards a fortress.
+    - It seems to be about a fortress.
+    - Is it possible that it's a castle?
+    - The answer may be a fortified building, a castle.
+    - It might refer to a place of defense, a fortress.
+    - Isn't the answer a stronghold?
+    - I guess it could be a bastion.
+    - Does the riddle refer to a citadel?
+    - It could be a castle or fortress.
+    - Might it be referring to a stronghold or fortress?
+
+- intent: answer_third_riddle
+  examples: |
+    - Could the answer be a witch?
+    - I think the riddle is about a sorceress.
+    - Is the solution an enchantress?
+    - I reckon it could be a witch.
+    - Could the answer be a necromancer?
+    - It might be a conjurer, don't you think?
+    - I believe the riddle is about a spell-caster.
+    - Is it a witch that we are talking about?
+    - The answer might be a sorceress.
+    - Could it be referring to a necromancer?
+    - Might it be an enchantress?
+    - I reckon the answer is a spell-caster.
+    - The riddle could refer to a witch.
+    - Is the solution a conjurer?
+    - It appears to be talking about a witch.
+
+# - intent: answer_riddle
+#   examples: |
+#     - Could the riddle refer to a witch in a gloomy castle?
+#     - Is the enigma's answer a witch situated in a somber palace?
+#     - The solution might be a witch hiding in a castle enshrouded in darkness.
+#     - What about a witch in the heart of a shadowy palace?
+#     - The answer could be a witch tucked away in a brooding castle.
+#     - I bet it's a witch within a palace concealed in darkness.
+#     - Might the solution be a witch occupying a twilight castle?
+#     - I'd suggest a witch lurking in a palace veiled by the dark.
+#     - My conjecture is a witch in the cryptic castle.
+#     - Does the riddle imply a witch in the twilight of a palace?
+#     - Is the witch in the castle submerged in the dark the correct answer?
+#     - Is it referring to a witch within the palace of nightfall?
+#     - Could it be a witch taking refuge in a castle blanketed by the night?
+#     - It might be a witch in a palace swathed in shadows.
+#     - Perhaps a witch amidst the eerie castle is the answer.
+#     - Could the response be a witch in the obscurity of a palace?
+#     - The answer is a witch in a dark castle.
+#     - witch dark castle
+#     - witch dark palace
+#     - palace witch dark
+#     - dark palace witch
+#     - dark castle witch
+#     - night castle witch
+#     - castle night witch
+#     - night witch castle
+#     - night witch palace
+#     - It's a witch in a dark palace.
+#     - I think it's a witch in the dark palace.
+#     - Could it be a witch in the dark castle?
+#     - Maybe it's a witch in a dark palace?
+#     - I would say a witch in the dark palace.
+#     - My guess would be a witch in a dark castle.
+#     - I'm thinking it's a witch in the dark castle.
+#     - Is it a witch in a dark palace?
+#     - I believe it's a witch in a dark castle.
+#     - The riddle's answer is a witch in a dark palace, isn't it?
+#     - It has to be a witch in a dark castle.
+#     - The solution is a witch in a dark palace.
+#     - I'm pretty sure it's a witch in a dark castle.
+#     - Is a witch in a dark castle the answer?
+#     - It must be a witch in the palace when it's dark.
+#     - I'm guessing a witch in the dark palace is the solution.
+#     - I suspect it's a witch in a castle shrouded in darkness.
+#     - The solution could be a witch in the gloomy castle.
+#     - Could the answer be the witch in a shadowy palace?
+#     - Is the riddle's solution the witch in the castle of darkness?
+#     - I reckon the answer is a witch dwelling in a dark palace.
+#     - Is the response a witch in a castle under the cover of darkness?
+#     - I propose it's a witch residing in a dimly lit palace.
+#     - Perhaps the answer is the witch in the somber castle.
+#     - My best guess is a witch in the darkened palace.
+#     - I would wager it's a witch within the darkness of a castle.
+#     - Is it possible that it's a witch in the depths of a dark palace?
+#     - The riddle must be referring to a witch in the murky castle.
+#     - A witch in a dark castle.
+#     - a witch in a dark castle
+#     - a witch in a dark palace
+#     - A witch in a dark palace.
+#     - A witch in the dark palace.
+#     - A witch in the dark castle.
+#     - A witch in a dark palace.
+#     - A witch in the dark palace.
+#     - A witch in a dark castle.
+#     - A witch in the dark castle.
+#     - A witch in a dark palace.
+#     - A witch in a dark castle.
+#     - A witch in a dark palace.
+#     - A witch in a dark castle.
+#     - A witch in a dark palace.
+#     - A witch in a dark castle.
+#     - A witch in a dark castle.
+#     - A witch in the palace when it's dark.
+#     - A witch in the dark palace.
+#     - A witch in a castle shrouded in darkness.
+#     - A witch in the gloomy castle.
+#     - The witch in a shadowy palace.
+#     - The witch in the castle of darkness.
+#     - A witch dwelling in a dark palace.
+#     - A witch in a castle under the cover of darkness.
+#     - A witch residing in a dimly lit palace.
+#     - The witch in the somber castle.
+#     - A witch in the darkened palace.
+#     - A witch within the darkness of a castle.
+#     - A witch in the depths of a dark palace.
+#     - A witch in the murky castle.
 
 - intent: alohomora
   examples: |
@@ -225,11 +278,14 @@ nlu:
     - look at the [table](object)
     - look in the [box](object)
     - look at the [charm](object)
-    - look at the [map](object)
+    - look at the [book](object)
+    - look at the [picture](object)
     - inspect [charm](object)
-    - inspect [map](object)
+    - inspect [book](object)
+    - inspect [picture](object)
     - check [charm](object)
-    - check [map](object)
+    - check [book](object)
+    - check [picture](object)
     - look inside the [chamber](object)
     - watch around [chamber](object)
     - watch inside the [walls](object)
@@ -246,12 +302,17 @@ nlu:
     - look at the [potion](object)
     - inspect [potion](object)
     - what is [potion](object)
-    - check [map](object)
-    - look [map](object)
-    - look at the [map](object)
-    - inspect [map](object)
-    - what is [map](object)
-    - check [map](object)
+    - check [book](object)
+    - look [book](object)
+    - look at the [book](object)
+    - inspect [book](object)
+    - what is [book](object)
+    - check [picture](object)
+    - look [picture](object)
+    - look at the [picture](object)
+    - inspect [picture](object)
+    - what is [picture](object)
+    - check [picture](object)
     - check the [prison](object)
     - look the [prison](object)
     - check [prison](object)
@@ -320,10 +381,10 @@ nlu:
     - pickup the [key](object)
     - grab the [key](object)
     - take the [key](object)
-    - pick up the [map](object)
-    - pickup the [map](object)
-    - grab the [map](object)
-    - take the [map](object)
+    - pick up the [book](object)
+    - pickup the [book](object)
+    - grab the [book](object)
+    - take the [book](object)
     - grab [wand](object)
     - pickup [wand](object)
     - pick up [wand](object)
@@ -357,7 +418,6 @@ nlu:
     - please guide me
     - i do not understand this
     - what can i do?
-    - where am i?
     - game instructions
     - instruction
 
@@ -368,10 +428,18 @@ nlu:
     - table
     - vessel
     - key
-    - map
+    - book
     - charm
     - chamber
     - po-charm
     - prison
     - wand
+    - picture
 
+- intent: show_map
+  examples: |
+    - show me the map
+    - show me the location
+    - what room am I in?
+    - what is my location?
+    - which room am I in?

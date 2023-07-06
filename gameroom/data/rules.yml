@@ -17,27 +17,27 @@ rules:
 - rule: simple alohomora rule
   steps:
     - intent: alohomora
-    - action: utter_alohomora
+    - action: action_alohomora
 
 - rule: Find sirius black
   steps:
     - intent: sirius_black
-    - action: utter_sirius_black
+    - action: action_black
 
 - rule: Find the wand rule
   steps:
     - intent: tom_riddle
-    - action: utter_tom_riddle
+    - action: action_tom
 
-- rule: Find Celina
-  steps:
-    - intent: Celina
-    - action: utter_Celina
+# - rule: Find Celina
+#   steps:
+#     - intent: Celina
+#     - action: action_move_to_room_2
 
-- rule: Celina replies
-  steps:
-    - intent: get_out_of_basement
-    - action: utter_get_out_of_basement
+# - rule: Celina replies
+#   steps:
+#     - intent: get_out_of_basement
+#     - action: utter_get_out_of_basement
 
 
 - rule: simple start rule
@@ -63,16 +63,25 @@ rules:
 
 # Room 2 Rule
 
-- rule: Check riddle answer
+- rule: Check first riddle answer
   steps:
-  - intent: answer_riddle
-  - action: utter_riddle_solved
+  - intent: answer_first_riddle
+  - action: action_check_first_riddle
 
-
-- rule: Use key on door
+- rule: Check second riddle answer
   steps:
-  - intent: use_key_on_door
-  - action: action_use_key_on_door
+  - intent: answer_second_riddle
+  - action: action_check_second_riddle
+
+- rule: Check third riddle answer
+  steps:
+  - intent: answer_third_riddle
+  - action: action_check_third_riddle
+
+# - rule: Use key on door
+#   steps:
+#   - intent: use_key_on_door
+#   - action: action_use_key_on_door
 
 - rule: Use wand on the walls
   steps:
@@ -108,3 +117,18 @@ rules:
   steps:
     - intent: use
     - action: action_use
+
+- rule: Move to room 2
+  steps:
+  - intent: Celina
+  - action: action_move_to_room_2
+
+- rule: Move to room 3
+  steps:
+  - intent: use_key_on_door
+  - action: action_use_key_and_move_to_room_3
+
+- rule: Show map
+  steps:
+  - intent: show_map
+  - action: action_show_map

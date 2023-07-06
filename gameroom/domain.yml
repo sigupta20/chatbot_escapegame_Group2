@@ -11,7 +11,7 @@ intents:
   - pickup
   - evanseco_sofortum
   - Celina
-  - get_out_of_basement
+  # - get_out_of_basement
   - answer_riddle
   - use_key_on_door
   - use_wand_on_wall
@@ -20,6 +20,10 @@ intents:
   - tom_riddle
   - alohomora
   - instruction
+  - show_map
+  - answer_first_riddle
+  - answer_second_riddle
+  - answer_third_riddle
 
 
 
@@ -34,6 +38,12 @@ slots:
     mappings:
       - type: custom
         # action: action_pickup
+  picture:
+    type: bool
+    initial_value: False
+    influence_conversation: false
+    mappings:
+      - type: custom
   vessel:
     type: bool
     initial_value: False
@@ -77,12 +87,87 @@ slots:
     mappings:
       - type: custom 
 
-  scroll:
+  enchanted_vessel:
     type: bool
     initial_value: False
     influence_conversation: false
     mappings:
       - type: custom
+
+  current_room:
+    type: text
+    initial_value: "room_1"
+    influence_conversation: true
+    mappings:
+      - type: custom 
+  
+  evanseco_performed:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  celina_called:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom  
+
+  first_riddle_solved:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  second_riddle_solved:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  third_riddle_solved:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  black_solved:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  tom_solved:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  scroll_found:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+  alohomora:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom 
+
+
+
+  
+
 
 
 
@@ -92,23 +177,23 @@ actions:
   - action_look
   - action_pickup
   - action_inventory
-  - action_use_key_on_door
+  # - action_use_key_on_door
   - action_cast_spell
   - action_use_wand_on_walls
+  - action_move_to_room_2
+  # - action_move_to_room_3
+  - action_show_map
+  - action_use_key_and_move_to_room_3
+  - action_check_first_riddle
+  - action_check_second_riddle
+  - action_check_third_riddle
+  - action_black
+  - action_tom
+  - action_alohomora
 
 responses:
   utter_empty:
   - text: "I don't understand what you are trying to say !"
-
-  utter_sirius_black:
-  - text: "Sirius: Hey, little wizard ! It's me Sirius black.\n You must help me out of the bars so that I can help you escape the chambers.\n For that, you need to call the name of an evil wizard ( you know who !) which is the key to open the cell. Call his name loudly and bars will disappear.\n Your hint: It's the other name of evil Lord Voldemort.... Who's he?"
-
-  utter_tom_riddle:
-  - text: "Sirius: Super, I am out of the bars now. We need to find a Snape's wand which is hidden here somewhere.\n Check the prison, if you find something."
-
-  utter_alohomora:
-  - text: "Congratulations you little Wizard! We are out of the chambers now. You have really done a good job here. It was not easy, but you made it happen. You can return to Hogwarts now. This is the end of the game....!"
-
 
   utter_greet:
   - text: "Hi Wizard ! Welcome to the Hogwart's dark chambers where you are trapped by evil Lord Voldemort! He wants you to be trapped here forever. But you must find your way to escape, so that you can return to Hogwart's.
@@ -118,37 +203,22 @@ responses:
 
 
   utter_instruction:
-  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: 'inspect room-name' and room details will be provided. You can then check or look each item mentioned in the room like 'look item-name'. If you think an item is useful, then pickup that item. For example: 'pickup item-name'. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it. Choose 'Start' to begin the game."
+  - text: "This is a text based adventure game. Whenever you inside a room, try to look or inspect the room. For example: Look around the room. You can then check or look each item mentioned in the room like 'look item-name'. If you think an item is useful, then pickup that item. For example: 'pickup item-name'. If item is useful and part of game, then it will be added to you inventory. You can always check item in your inventory just write - inventory and the list of items will be displayed.If you stuck, check/look the current room again and then start step by step. When you have items, try to combine or use them. For example: combine item-A and item-B. This way new room or next step will appear. Note: You must pickup an item before using/combine it. Choose 'Start' to begin the game. You can also check which room you are in my typing: map or location, etc."
 
   utter_help:
-  - text: "The game has three rooms. Always remember the room name, it will help to find the objects in that room and to get clear response from the guide.\n
+  - text: "The game has three rooms. If you want to find out which room are you in, just type map, location, etc. You can use the following hints for each room.\n
       \ Hint Room1:- In first room, you have to find three objects and pickup them. Once you find all three objects, check your inventory and start combine/mix them with each other. You can only combine two objects at a time.\n
       \ Hint Room2:- In second room, ask - how to exit to from the room and you will be provided riddles to solve. There will be three riddles to solve and you have to make a sentence from the three riddles. If you guess the riddles correctly, you will provided instructions to  exit the room. Remember, do not forget to pick the item, before you try to use them.\n
-      \ Hint Room3:- In third room, you have to solve two puzzles and find one object (which you can pick). Two puzzles are based on harry potter characters. LastName or Surname of first character is 'Black' and of second character is 'Riddle'. Use the object on the room-name to exit."
+      \ Hint Room3:- In third room, you have to solve two puzzles and find one object (which you can pick). Two puzzles are based on harry potter characters. If you don't know the name of the name of the characters in the riddles, you can take a look around the room for clues."
 
 
   utter_start:
   - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls disappear around the chamber into thin air ! \n Start looking chamber."
 
 
-  utter_evanseco:
-  - text: "Good job ! Now we are in the basement and we will meet 'Celina' here.\n
-          \ She is a ghost and trapped here by Voldemort. She can help us but she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n
-          \ Now, call her name and ask her way to exit of basement !"
-
-  utter_Celina:
-  - text: "Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \
-          \ Ha ha ha ha..... How about let's stay here forever? ;) \n Tell me what you want, don't waste my time.. "
-
-  utter_get_out_of_basement:
-  - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
-  \ Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \n
-  \ Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \n
-  \ Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil.\n
-  \ Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat."
-
-  utter_riddle_solved:
-  - text: "Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement door to unlock it."
+  # utter_get_out_of_basement:
+  # - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
+  
 
 
 session_config:
