@@ -348,7 +348,7 @@ class ActionCastSpell(Action):
         has_enchanted_vessel = tracker.get_slot('enchanted_vessel')  # Check if the enchanted_vessel is in the inventory
 
         if has_enchanted_vessel:
-            dispatcher.utter_message(text="Good job ! Now you must hurry to the basement and you will find Celina there. Ask her way to escape from basement. She is a ghost and she will ask riddles to help you escape from the basement. Go down and call her name !")
+            dispatcher.utter_message(text="Good job ! Now we are in the basement and we will meet 'Celina' here.\n She is a ghost and trapped here by Voldemort. She can help us but she will ask riddles to escape from the basement. You must ask her the way to escape basement.\n Now, call her name and ask her way to exit the basement !")
             return [SlotSet("enchanted_vessel", False), SlotSet("evanseco_performed",True)] 
         else:
             dispatcher.utter_message(text="You don't have correct items in your inventory to cast the spell. Please check your inventory or pickup the item(s) to cast the spell.")
