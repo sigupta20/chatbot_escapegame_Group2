@@ -83,7 +83,7 @@ class ActionTom(Action):
             dispatcher.utter_message(text="Sirius: Super, I am out of the bars now. You need to help me find my wand. Look around the room for some clues.")
             return [SlotSet("tom_solved", True)]
         elif current_room == "room_3" and tom_solved==False and has_wand==True:
-            dispatcher.utter_message(text="Sirius: Well done! You finally found my wand. Let's hurry up. We are at the prison walls now. You have to cast Alohomora with me. I am too weak to cast it myself.")
+            dispatcher.utter_message(text="Sirius: Well done! You finally found my lost wand. Let's hurry up. We are at the prison walls now. You now have to use wand on these walls.")
             return [SlotSet("tom_solved", True)]
         else:
             return []
@@ -177,31 +177,11 @@ look_descriptions = {
     "book": "In your hands, you hold an autobiography of the infamous Salazar Slytherin, its pages whispering ancient secrets. You note the signature of Tom Riddle imprinted at the end, an ominous shadow of its past owner. Its presence in this room raises a sense of curiosity and you can't help but wonder, could this book hold significant clues for your journey ahead? Don't forget this moment.",
     "prison": "The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. It's so faded you can't tell what it used to show. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.",
     "almirah": "It's an old magical piece and I can see a magical wand inside it",
-    "wand": "This is Sirius's wand, one of powerful wands exists. I am not sure, why it is here.",
-    "picture": "When you look at the old photo on your right, you quickly realize who it is - Sirius Black. You can tell it's him by his messy black hair, his eyes full of defiance, and his confident smile. These features make him very unique. The name 'Sirius Black' is written under the photo on a old metal label. This could be a hint for ou to get out."
+    "wand": "This is a magical wand, seems very powerful. I think it belongs to someone known. I am not sure, why it is here.",
+    "picture": "When you look at the old photo on your right, you quickly realize who it is - Sirius Black. You can tell it's him by his messy black hair, his eyes full of defiance, and his confident smile. These features make him very unique. The name 'Sirius Black' is written under the photo on a old metal label. This could be a hint for you to get out."
 }
 
 
-# class ActionLook(Action):
-#     def name(self) -> Text:
-#         return "action_look"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         spoken = False
-#         print("action_look")
-#         room_1 = tracker.get_slot('current_room')
-
-#         for blob in tracker.latest_message['entities']:
-#             if blob['entity'] == 'object':
-#                 dispatcher.utter_message(text=look_descriptions[blob['value']])
-#                 spoken = True
-
-            
-#         if not spoken:
-#             dispatcher.utter_message(room_1)
-#         return []
 class ActionLook(Action):
     def name(self) -> Text:
         return "action_look"
@@ -231,7 +211,7 @@ class ActionLook(Action):
                     elif(room == "room_3"):
                         dispatcher.utter_message(text="The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.")
                     elif(alohomora == True):
-                        dispatcher.utter_message(text="You find yourself back in the magical halls of Hogwarts that you know so well. You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
+                        dispatcher.utter_message(text="Congratulations you little Wizard! We are out of the chambers now. You have really done a good job here. It was not easy, but you made it happen. You can return to Hogwarts now. This is the end of the game....! You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
                     spoken = True
         if not spoken:
             if(room == "room_1"):
@@ -243,7 +223,7 @@ class ActionLook(Action):
             elif(room == "room_3" and alohomora == False):
                         dispatcher.utter_message(text="The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.")
             elif(alohomora == True):
-                        dispatcher.utter_message(text="You find yourself back in the magical halls of Hogwarts that you know so well. You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
+                        dispatcher.utter_message(text="Congratulations you little Wizard! We are out of the chambers now. You have really done a good job here. It was not easy, but you made it happen. You can return to Hogwarts now. This is the end of the game....! You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
            
             # dispatcher.utter_message(text="Sorry, I don't understand what you are trying to look at!")
         return []
@@ -457,40 +437,7 @@ class ActionCheckThirdRiddle(Action):
         else:
             return []
 
-# class ActionMoveToRoom2(Action):
-#     def name(self):
-#         return "action_move_to_room_2"
 
-#     async def run(self, dispatcher, tracker, domain):
-#         dispatcher.utter_message(text="""Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? 
-#           Ha ha ha ha..... How about let's stay here forever? ;) 
-#           Unless you answer my three riddles. Each riddle has a meaning which resembles me.
-#           Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. 
-#           Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. 
-#           Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil.
-#           Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat.""")
-#         return [SlotSet("current_room", "room_2")]
-
-
-# class ActionMoveToRoom2(Action):
-#     def name(self):
-#         return "action_move_to_room_2"
-
-#     async def run(self, dispatcher, tracker, domain):
-#         dispatcher.utter_message(text="Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? \
-#           \ Ha ha ha ha..... How about let's stay here forever? ;) \n unless you answer my three riddles. Each riddle has a meaning which resembles me.\n 
-#           Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. \n
-#           \ Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time. \n
-#           \ Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil.\n
-#           \ Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat.")
-#         return [SlotSet("current_room", "room_2")]
-
-# class ActionMoveToRoom3(Action):
-#     def name(self):
-#         return "action_move_to_room_3"
-
-#     async def run(self, dispatcher, tracker, domain):
-#         return [SlotSet("current_room", "room_3")]
 
 class ActionShowMap(Action):
     def name(self):

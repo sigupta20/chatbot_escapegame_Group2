@@ -67,6 +67,9 @@ nlu:
     - I believe the answer is fortress.
     - Could it be a stronghold or bastion?
     - Is the answer a citadel perhaps?
+    - Is the answer a palace perhaps?
+    - palace
+    - mansion
     - The riddle might refer to a towered structure, a castle.
     - I think it could be pointing towards a fortress.
     - It seems to be about a fortress.
@@ -82,6 +85,8 @@ nlu:
 - intent: answer_third_riddle
   examples: |
     - Could the answer be a witch?
+    - Could the answer be a devil?
+    - Could the answer be a evil mistress?
     - I think the riddle is about a sorceress.
     - Is the solution an enchantress?
     - I reckon it could be a witch.
