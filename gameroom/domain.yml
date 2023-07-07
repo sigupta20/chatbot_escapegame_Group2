@@ -190,6 +190,7 @@ actions:
   - action_black
   - action_tom
   - action_alohomora
+  - action_hint
 
 responses:
   utter_empty:

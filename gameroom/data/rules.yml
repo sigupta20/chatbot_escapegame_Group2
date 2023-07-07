@@ -54,7 +54,7 @@ rules:
 - rule: ask for help once
   steps:
     - intent: help
-    - action: utter_help
+    - action: action_hint
 
 - rule: game instructions
   steps:

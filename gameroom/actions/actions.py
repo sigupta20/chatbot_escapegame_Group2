@@ -37,6 +37,24 @@ class ActionUseKeyAndMoveToRoom3(Action):
             dispatcher.utter_message(text="You tried to open the door, but it's locked. You need a key.")
             return []
 
+
+class ActionHint(Action):
+    def name(self):
+        return "action_hint"
+
+    def run(self, dispatcher, tracker, domain):
+        current_room = tracker.get_slot('current_room')
+
+        if (current_room=="room_1"):
+            dispatcher.utter_message(text="You are in the first chamber. In this room, you have to find three objects and pickup them. Once you find all three objects, check your inventory and start combine/mix them with each other. You can only combine two objects at a time.")
+        elif (current_room=="room_2"):
+            dispatcher.utter_message(text="You are in the second room. In second room, You have to provide answers for three riddles. After solving the riddles, you will be given a key. Pick it up then use it to unlock the door.")
+        elif (current_room=="room_3"):
+            dispatcher.utter_message(text="You in the third room, you have to answer two questions and find one object (which you can pick). Two puzzles are based on harry potter characters. If you don't know the name of the characters in the riddles, you can take a look around the room for clues.")
+        else:
+            dispatcher.utter_message(text="Congratulations, you are out of the chambers!")
+        return []
+
 class ActionBlack(Action):
     def name(self):
         return "action_black"
@@ -157,10 +175,10 @@ look_descriptions = {
     "chamber": "It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
     "book": "In your hands, you hold an autobiography of the infamous Salazar Slytherin, its pages whispering ancient secrets. You note the signature of Tom Riddle imprinted at the end, an ominous shadow of its past owner. Its presence in this room raises a sense of curiosity and you can't help but wonder, could this book hold significant clues for your journey ahead? Don't forget this moment.",
-    "prison": "The atmosphere is heavy in this space; it's reminiscent of a prison. To your right, a worn and faded picture clings onto the wall, its story seemingly lost to time. On the left, an unaccompanied book rests on a shelf, a solitary testament to knowledge and solitude. And nestled away in the corner, an almirah stands, its imposing silhouette shrouded in mystery and anticipation.",
+    "prison": "The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. It's so faded you can't tell what it used to show. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.",
     "almirah": "It's an old magical piece and I can see a magical wand inside it",
     "wand": "This is Sirius's wand, one of powerful wands exists. I am not sure, why it is here.",
-    "picture": "As your eyes land on the aged picture hanging to your right, you recognize the face instantly - Sirius Black. His disheveled dark hair, his eyes brimming with rebellion, and his knowing grin all contribute to his unmistakable personality. The name 'Sirius Black' is inscribed beneath the frame on a worn-out brass plaque, perhaps a clue to unravel in this game."
+    "picture": "When you look at the old photo on your right, you quickly realize who it is - Sirius Black. You can tell it's him by his messy black hair, his eyes full of defiance, and his confident smile. These features make him very unique. The name 'Sirius Black' is written under the photo on a old metal label. This could be a hint for ou to get out."
 }
 
 
@@ -206,26 +224,26 @@ class ActionLook(Action):
                 else:
                     if(room == "room_1"):
                         dispatcher.utter_message(text="It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?")
-                    elif(room == "room_2" and not(third_riddle_solved)):
-                        dispatcher.utter_message(text="The spectral figure of Celina manifests before your eyes, her phantom form floating eerily above the ground. The ethereal glow of her spectral image illuminates the space around, casting an array of haunting shadows that dance around the room.")
-                    elif(room == "room_2" and third_riddle_solved):
-                            dispatcher.utter_message(text="The spectral figure of Celina manifests before your eyes, her phantom form floating eerily above the ground. As her spectral image glows softly, you notice a metallic glint on the floor beneath her. A solitary key lies there, quietly beckoning for you to claim it.")
+                    elif(room == "room_2" and third_riddle_solved and has_key==False):
+                            dispatcher.utter_message(text="Celina's ghost-like figure shows up in front of you, appearing to hover just above the ground. Her form has a soft glow, and beneath her, you see something metallic shine on the floor. It's a single key, inviting you to pick it up.")
+                    elif(room == "room_2"):
+                        dispatcher.utter_message(text="The ghost-like figure of Celina appears in front of you, her form seeming to float above the floor. The soft glow from her ghostly image lights up the room, creating spooky shadows that move around the room.")
                     elif(room == "room_3"):
-                        dispatcher.utter_message(text="The atmosphere is heavy in this space; it's reminiscent of a prison. To your right, a worn and faded picture clings onto the wall, its story seemingly lost to time. On the left, an unaccompanied book rests on a shelf, a solitary testament to knowledge and solitude. And nestled away in the corner, an almirah stands, its imposing silhouette shrouded in mystery and anticipation. ")
-                    elif(alohomora == True and alohomora == False):
-                        dispatcher.utter_message(text="You find yourself standing once again within the familiar, enchanting halls of Hogwarts. A rush of anticipation courses through your veins as you can hardly contain the excitement to share the tales of your extraordinary adventures with your friends. Each twist, each turn, every spell cast and mystery solved - you've got a story for the ages and can't wait to relive it with your comrades.")
+                        dispatcher.utter_message(text="The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.")
+                    elif(alohomora == True):
+                        dispatcher.utter_message(text="You find yourself back in the magical halls of Hogwarts that you know so well. You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
                     spoken = True
         if not spoken:
             if(room == "room_1"):
                         dispatcher.utter_message(text="It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?")
-            elif(room == "room_2" and not(third_riddle_solved)):
-                        dispatcher.utter_message(text="The spectral figure of Celina manifests before your eyes, her phantom form floating eerily above the ground. The ethereal glow of her spectral image illuminates the space around, casting an array of haunting shadows that dance around the room.")
-            elif(room == "room_2" and third_riddle_solved):
-                        dispatcher.utter_message(text="The spectral figure of Celina manifests before your eyes, her phantom form floating eerily above the ground. As her spectral image glows softly, you notice a metallic glint on the floor beneath her. A solitary key lies there, quietly beckoning for you to claim it.")
+            elif(room == "room_2" and third_riddle_solved and has_key==False):
+                        dispatcher.utter_message(text="Celina's ghost-like figure shows up in front of you, appearing to hover just above the ground. Her form has a soft glow, and beneath her, you see something metallic shine on the floor. It's a single key, inviting you to pick it up.")
+            elif(room == "room_2"):
+                        dispatcher.utter_message(text="The ghost-like figure of Celina appears in front of you, her form seeming to float above the floor. The soft glow from her ghostly image lights up the room, creating spooky shadows that move around the room.")
             elif(room == "room_3" and alohomora == False):
-                        dispatcher.utter_message(text="The atmosphere is heavy in this space; it's reminiscent of a prison. To your right, a worn and faded picture clings onto the wall, its story seemingly lost to time. On the left, an unaccompanied book rests on a shelf, a solitary testament to knowledge and solitude. And nestled away in the corner, an almirah stands, its imposing silhouette shrouded in mystery and anticipation. ")
+                        dispatcher.utter_message(text="The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.")
             elif(alohomora == True):
-                        dispatcher.utter_message(text="You find yourself standing once again within the familiar, enchanting halls of Hogwarts. A rush of anticipation courses through your veins as you can hardly contain the excitement to share the tales of your extraordinary adventures with your friends. Each twist, each turn, every spell cast and mystery solved - you've got a story for the ages and can't wait to relive it with your comrades.")
+                        dispatcher.utter_message(text="You find yourself back in the magical halls of Hogwarts that you know so well. You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
            
             # dispatcher.utter_message(text="Sorry, I don't understand what you are trying to look at!")
         return []
@@ -361,16 +379,22 @@ class ActionMoveToRoom2(Action):
 
     async def run(self, dispatcher, tracker, domain):
         evanseco_performed = tracker.get_slot('evanseco_performed')
+        first_riddle_solved = tracker.get_slot('first_riddle_solved')
+        current_room = tracker.get_slot('current_room')
 
-        if evanseco_performed:
+        third_riddle_solved = tracker.get_slot('third_riddle_solved')
+
+        if (evanseco_performed and first_riddle_solved==False):
             dispatcher.utter_message(text="""Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? 
               Ha ha ha ha..... How about let's stay here forever? ;) 
               Unless you answer my three riddles. Each riddle has a meaning which resembles me.
               Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. 
               Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time.""")
             return [SlotSet("current_room", "room_2")]
+        elif(current_room=="room_2"):
+            dispatcher.utter_message(text="You are already in the second room.")
         else:
-            dispatcher.utter_message(text="You attempted to call Celina, but she seems unable to hear you. It might be better to first find a way out of this room, and try calling her once you're in the next chamber.")
+            dispatcher.utter_message(text="You attempted to call Celina, but she seems unable to hear you.")
             return []
 
 
@@ -383,13 +407,15 @@ class ActionCheckFirstRiddle(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         current_room = tracker.get_slot('current_room')
+        first_riddle_solved = tracker.get_slot('first_riddle_solved')
 
-        if current_room == "room_2":
+        if (current_room == "room_2" and first_riddle_solved==False):
             dispatcher.utter_message(text="That's the right answer! \n  Riddle-2:- It has mighty tall walls, all the riches, and also a dark prison to capture all the evil.")
             return [SlotSet("first_riddle_solved", True)]
-        
+        elif(current_room == "room_2" and first_riddle_solved==True):
+            dispatcher.utter_message(text="You have already solved the first riddle.")
         else:
-            return [SlotSet("first_riddle_solved", False)]
+            return []
         
 class ActionCheckSecondRiddle(Action):
     def name(self) -> Text:
@@ -406,9 +432,10 @@ class ActionCheckSecondRiddle(Action):
         if current_room == "room_2" and first_riddle_solved and not(second_riddle_solved):
             dispatcher.utter_message(text="Right again! Just one more and you are through! \n  Riddle-3:- Possesses magical powers, has never been seen without her magical cloak, and the black cat keeps flying around on broomsticks wearing her hat.")
             return [SlotSet("second_riddle_solved", True)]
-        
+        elif current_room =="room_2" and second_riddle_solved==True:
+            dispatcher.utter_message(text="You have already solved the second riddle.")
         else:
-            return [SlotSet("second_riddle_solved", False)]
+            return []
 
 class ActionCheckThirdRiddle(Action):
     def name(self) -> Text:
@@ -425,9 +452,10 @@ class ActionCheckThirdRiddle(Action):
         if current_room == "room_2" and second_riddle_solved and not(third_riddle_solved):
             dispatcher.utter_message(text="Celina: Well done , Little Wizard! Here's your key. You can pick the key and use in the basement door to unlock it.")
             return [SlotSet("third_riddle_solved", True)]
-        
+        elif current_room =="room_3" and third_riddle_solved==True:
+            dispatcher.utter_message(text="You have already solved the third riddle.")
         else:
-            return [SlotSet("third_riddle_solved", False)]
+            return []
 
 # class ActionMoveToRoom2(Action):
 #     def name(self):
@@ -470,4 +498,18 @@ class ActionShowMap(Action):
 
     async def run(self, dispatcher, tracker, domain):
         room = tracker.get_slot('current_room')
-        dispatcher.utter_message(text=f"You are currently in {room}.")
+        has_key = tracker.get_slot('key')
+        third_riddle_solved = tracker.get_slot('third_riddle_solved')
+        alohomora = tracker.get_slot('alohomora')
+        if(room == "room_1"):
+            dispatcher.utter_message(text=f"You are currently in {room}. It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?")
+        elif(room == "room_2" and third_riddle_solved and has_key==False):
+            dispatcher.utter_message(text=f"You are currently in {room}. Celina's ghost-like figure shows up in front of you, appearing to hover just above the ground. Her form has a soft glow, and beneath her, you see something metallic shine on the floor. It's a single key, inviting you to pick it up.")
+        elif(room == "room_2"):
+            dispatcher.utter_message(text=f"You are currently in {room}. The ghost-like figure of Celina appears in front of you, her form seeming to float above the floor. The soft glow from her ghostly image lights up the room, creating spooky shadows that move around the room.")
+        elif(room == "room_3"):
+            dispatcher.utter_message(text=f"You are currently in {room}. The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.")
+        elif(alohomora == True):
+            dispatcher.utter_message(text=f"You are currently in {room}. You find yourself back in the magical halls of Hogwarts that you know so well. You feel excited and can't wait to tell your friends about the amazing adventures you've had. Every surprising event, every spell you cast, every mystery you solved - you have an incredible story to tell and you're eager to share it with your friends.")
+                    
+   
