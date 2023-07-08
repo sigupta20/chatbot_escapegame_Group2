@@ -78,11 +78,12 @@ class ActionTom(Action):
         current_room = tracker.get_slot('current_room')
         tom_solved = tracker.get_slot('tom_solved')
         has_wand = tracker.get_slot('wand')
+        black_solved = tracker.get_slot('black_solved')
 
-        if current_room == "room_3" and tom_solved==False and has_wand==False:
+        if current_room == "room_3" and tom_solved==False and has_wand==False and black_solved==True:
             dispatcher.utter_message(text="Sirius: Super, I am out of the bars now. You need to help me find my wand. Look around the room for some clues.")
             return [SlotSet("tom_solved", True)]
-        elif current_room == "room_3" and tom_solved==False and has_wand==True:
+        elif current_room == "room_3" and tom_solved==False and has_wand==True and black_solved==True:
             dispatcher.utter_message(text="Sirius: Well done! You finally found my lost wand. Let's hurry up. We are at the prison walls now. You now have to use wand on these walls.")
             return [SlotSet("tom_solved", True)]
         else:
