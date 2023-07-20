@@ -269,7 +269,7 @@ class ActionPickUp(Action):
         return []
 
 combinations = {
-    ('charm', 'potion'): "Wow, you have created Po-charm, now put it inside vessel and we are ready...",
+    ('charm', 'potion'): "Wow, you have created po-charm, now put it inside vessel and we are ready...",
     ('po-charm', 'vessel'): "Super! Now time to use your wand harry and cast spell - Evanseco-Sofortum !",
     ('key', 'door'): "Why put the key back in the box? It's probably super useful.",
     ('wand', 'walls'): "Super, wand is illuminating now, cast the spell - Alohomora!"
