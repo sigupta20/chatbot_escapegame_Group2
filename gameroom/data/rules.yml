@@ -3,10 +3,10 @@ version: "3.1"
 rules:
 
 
-- rule: handle empty input
-  steps:
-    - intent: empty_intent
-    - action: utter_empty
+# - rule: handle empty input
+#   steps:
+#     - intent: empty_intent
+#     - action: utter_empty
 
 
 - rule: simple evanseco sofortum rule
@@ -43,7 +43,7 @@ rules:
 - rule: simple start rule
   steps:
     - intent: start
-    - action: utter_start
+    - action: action_start
 
 
 - rule: simple look rule
@@ -132,3 +132,8 @@ rules:
   steps:
   - intent: show_map
   - action: action_show_map
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase

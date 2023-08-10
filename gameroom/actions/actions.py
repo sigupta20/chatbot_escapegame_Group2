@@ -38,6 +38,21 @@ class ActionUseKeyAndMoveToRoom3(Action):
             return []
 
 
+class ActionStartGame(Action):
+    def name(self):
+        return "action_start"
+
+    def run(self, dispatcher, tracker, domain):
+        gameStarted = tracker.get_slot('game_started')
+
+        if (gameStarted==True):
+            dispatcher.utter_message(text="The game has already started.")
+            return []
+        else:
+            dispatcher.utter_message(text="You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls disappear around the chamber into thin air ! \n Start looking around the room.")
+            return [SlotSet("game_started", True)]
+            
+
 class ActionHint(Action):
     def name(self):
         return "action_hint"
@@ -98,12 +113,12 @@ class ActionAlohomora(Action):
         tom_solved = tracker.get_slot('tom_solved')
         has_wand = tracker.get_slot('wand')
 
-        if current_room == "room_3" and tom_solved==True:
+        if current_room == "room_3" and tom_solved==True and has_wand==True:
             dispatcher.utter_message(text="Congratulations you little Wizard! We are out of the chambers now. You have really done a good job here. It was not easy, but you made it happen. You can return to Hogwarts now. This is the end of the game....!")
             return [SlotSet("alohomora", True)]
         else:
+            dispatcher.utter_message(text=" \"Alohomora!\" You intone, but the magic doesn't seem to take effect. Either you're not in the right place or there's something you've missed. Continue exploring and ensure all tasks are complete.")
             return []
-
 
 
 
@@ -170,16 +185,16 @@ class ActionInventory(Action):
 
 look_descriptions = {
     "table": "It is a black carved table. It has a concealment charm the top of it. We can try to inspect it.",
-    "box": "It's a wooden box. There's a potion inside of it. May be we should it pick it.",
+    "box": "It's a wooden box. There's a potion inside of it. May be we should pick it up.",
     "potion": "It is a magical potion which makes a spell work.",
     "vessel": "It's a transfiguration vessel. People used these vessels, to mix things together. It can be super useful.",
     "chamber": "It a very dark and withered chamber. Seems quite old and cold. But I can see something. I can see a table, a box in the corner and a transfiguration vessel lying on the ground. Tell me which item you want to look?",
     "charm": "It's a concealment charm to make, used by wizards to make things disappear.",
-    "book": "In your hands, you hold an autobiography of the infamous Salazar Slytherin, its pages whispering ancient secrets. You note the signature of Tom Riddle imprinted at the end, an ominous shadow of its past owner. Its presence in this room raises a sense of curiosity and you can't help but wonder, could this book hold significant clues for your journey ahead? Don't forget this moment.",
+    "book": "In your hands, you hold an autobiography of the infamous Salazar Slytherin, its pages whispering ancient secrets. You note the signature of **Tom Riddle** imprinted at the end, an ominous shadow of its past owner. Its presence in this room raises a sense of curiosity and you can't help but wonder, could this book hold significant clues for your journey ahead? Don't forget this moment.",
     "prison": "The room feels heavy, like a jail cell. To your right, there's an old picture hanging on the wall. It's so faded you can't tell what it used to show. To your left, there's a lonely book on a shelf, standing alone as if it's a symbol of knowledge and solitude. In a corner of the room, there's a large almirah, its shape is dark and mysterious, making you wonder what's inside.",
     "almirah": "It's an old magical piece and I can see a magical wand inside it",
     "wand": "This is a magical wand, seems very powerful. I think it belongs to someone known. I am not sure, why it is here.",
-    "picture": "When you look at the old photo on your right, you quickly realize who it is - Sirius Black. You can tell it's him by his messy black hair, his eyes full of defiance, and his confident smile. These features make him very unique. The name 'Sirius Black' is written under the photo on a old metal label. This could be a hint for you to get out."
+    "picture": "When you look at the old photo on your right, you quickly realize who it is - **Sirius Black**. You can tell it's him by his messy black hair, his eyes full of defiance, and his confident smile. These features make him very unique. The name '**Sirius Black**' is written under the photo on a old metal label. This could be a hint for you to get out."
 }
 
 
@@ -369,8 +384,8 @@ class ActionMoveToRoom2(Action):
             dispatcher.utter_message(text="""Celina: Look who's there! Another Victim. Are you also trapped in the chamber little wizard? 
               Ha ha ha ha..... How about let's stay here forever? ;) 
               Unless you answer my three riddles. Each riddle has a meaning which resembles me.
-              Combine them and make a meaningful sentence. If you give me the right sentence, I give you the key to run away from basement. 
-              Riddle-1:- It can be seen, it can be felt, but it never heard, and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time.""")
+              If you give me the right sentence for all the three riddles, I will give you the key to run away from basement. 
+              Riddle-1:- It can be seen, it can be felt, but it's never heard and never smelt. It comes every day at the end of time, and witches and Dracula love it cause now it's their time.""")
             return [SlotSet("current_room", "room_2")]
         elif(current_room=="room_2"):
             dispatcher.utter_message(text="You are already in the second room.")

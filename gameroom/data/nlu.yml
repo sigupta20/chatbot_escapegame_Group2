@@ -259,17 +259,17 @@ nlu:
     - proceed
     - go ahead
 
-- intent: empty_intent
-  examples: |
-    - " "
-    - ""
-    - ''
-    - 
-    - hello world
-    - world end
-    - ending
-    - dying
-    - finish
+# - intent: empty_intent
+#   examples: |
+#     - " "
+#     - ""
+#     - ''
+#     - 
+#     - hello world
+#     - world end
+#     - ending
+#     - dying
+#     - finish
 
 
 - intent: look

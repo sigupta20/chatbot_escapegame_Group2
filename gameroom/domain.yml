@@ -3,7 +3,7 @@ version: "3.1"
 intents:
   - greet
   - help
-  - empty_intent
+  # - empty_intent
   - start
   - look
   - use
@@ -164,6 +164,14 @@ slots:
     mappings:
       - type: custom 
 
+  game_started:
+    type: bool
+    initial_value: False
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+
 
 
   
@@ -191,6 +199,7 @@ actions:
   - action_tom
   - action_alohomora
   - action_hint
+  - action_start
 
 responses:
   utter_empty:
@@ -214,8 +223,10 @@ responses:
 
 
   utter_start:
-  - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls disappear around the chamber into thin air ! \n Start looking chamber."
+  - text: "You are currently inside magical walls which is the deepest part of the chamber. Remember, you cannot break the walls.\n You need a spell and magical objects which will make the room walls disappear. \n You will find three objects in this room. Once you find all three, start combining them and I will give you a spell to caste that will make the walls disappear around the chamber into thin air ! \n Start looking around the room."
 
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
 
   # utter_get_out_of_basement:
   # - text: "Ah, there you are ! Sure, but solve my three riddles. Each riddle has a meaning which resembles me. \
